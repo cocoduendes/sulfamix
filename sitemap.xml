@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.sulfamix.com/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.sulfamix.com/#contacto</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.sulfamix.com/assets/pdfs/estudio-inta.pdf</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.sulfamix.com/assets/pdfs/estudio-fao.pdf</loc>
+    <priority>0.6</priority>
+  </url>
+</urlset>
