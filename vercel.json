@@ -1,8 +1,8 @@
 {
   "redirects": [
     {
-      "source": "/:path*",
-      "destination": "https://www.sulfamix.com/:path*",
+      "source": "/",
+      "destination": "https://www.sulfamix.com/",
       "permanent": true
     }
   ]
