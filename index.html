@@ -3,50 +3,61 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sulfamix - Yeso agrícola (sulfato de calcio) para agricultura sostenible en Argentina y Mercosur</title>
-  <meta name="description" content="Yeso agrícola premium (sulfato de calcio) para mejorar suelos degradados. Aumenta rendimientos 15-35%, reduce salinidad y mejora estructura del suelo. Aplicación al voleo o fertirriego. Respaldado por investigación científica INTA, universidades de Brasil y EE.UU." />
+  <title>Sulfamix - Yeso Agrícola | Agricultura Inteligente | Reemplazo de Agroquímicos</title>
+  <meta name="description" content="Sulfamix: Yeso agrícola natural para agricultura inteligente. Reemplazo de agroquímicos. Suelos expandidos bien nutridos. Directo de cantera. Certificado BCRlabs 98% pureza." />
   
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
+  
   <style>
-    body {
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
+    * { font-family: 'Raleway', sans-serif; }
+    
+    html { scroll-behavior: smooth; }
+    
+    /* Colores Brand */
+    :root {
+      --color-verde: #059669;
+      --color-verde-dark: #047857;
+      --color-marron: #78350f;
+      --color-dorado: #d97706;
+      --color-cream: #fefdf3;
     }
     
-    .grain {
-      background-image: 
-        radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0);
-      background-size: 20px 20px;
+    /* Typography */
+    .font-ultra-light { font-weight: 100; }
+    .font-super-light { font-weight: 200; }
+    .font-thin { font-weight: 300; }
+    
+    /* Hero */
+    .hero-gradient {
+      background: linear-gradient(135deg, rgba(5, 150, 105, 0.95) 0%, rgba(120, 53, 15, 0.95) 100%);
     }
     
-    .text-shadow {
-      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
     }
     
-    .hover-lift {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Cards */
+    .card-clean {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+      border: 1px solid rgba(5, 150, 105, 0.1);
     }
     
-    .hover-lift:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    .card-clean:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(5, 150, 105, 0.15);
+      border-color: rgba(5, 150, 105, 0.3);
     }
     
-    .fade-in {
-      animation: fadeIn 0.8s ease-out;
-    }
-    
-    .slide-up {
-      animation: slideUp 0.6s ease-out;
-    }
-    
-    .scale-in {
-      animation: scaleIn 0.5s ease-out;
-    }
-    
-    .pulse-glow {
-      animation: pulseGlow 2s ease-in-out infinite;
+    /* Animation */
+    @keyframes slideInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     
     @keyframes fadeIn {
@@ -54,2127 +65,641 @@
       to { opacity: 1; }
     }
     
-    @keyframes slideUp {
-      from { 
-        opacity: 0; 
-        transform: translateY(30px); 
-      }
-      to { 
-        opacity: 1; 
-        transform: translateY(0); 
-      }
+    .animate-in-up { animation: slideInUp 0.8s cubic-bezier(0.23, 1, 0.320, 1) forwards; }
+    .animate-fade { animation: fadeIn 0.6s ease-out forwards; }
+    
+    .stagger-1 { animation-delay: 0.1s; }
+    .stagger-2 { animation-delay: 0.2s; }
+    .stagger-3 { animation-delay: 0.3s; }
+    .stagger-4 { animation-delay: 0.4s; }
+    
+    /* Logo Grid */
+    .logo-showcase {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 2rem;
+      align-items: center;
+      justify-items: center;
     }
     
-    @keyframes scaleIn {
-      from { 
-        opacity: 0; 
-        transform: scale(0.9); 
-      }
-      to { 
-        opacity: 1; 
-        transform: scale(1); 
-      }
+    .logo-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 80px;
+      filter: grayscale(100%);
+      opacity: 0.7;
+      transition: all 0.3s ease;
     }
     
-    @keyframes pulseGlow {
-      0%, 100% { 
-        box-shadow: 0 0 5px rgba(5, 150, 105, 0.3); 
-      }
-      50% { 
-        box-shadow: 0 0 20px rgba(5, 150, 105, 0.6); 
-      }
+    .logo-item:hover {
+      filter: grayscale(0%);
+      opacity: 1;
+      transform: scale(1.05);
     }
     
-    .section-divider {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(0,0,0,0.1), transparent);
+    .logo-item img {
+      max-height: 70px;
+      max-width: 100%;
+      object-fit: contain;
     }
     
-    .minimal-card {
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(0,0,0,0.05);
+    /* Stat Counter */
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--color-verde), var(--color-dorado));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
     
-    .accent-green {
-      color: #059669;
+    /* Pureza Badge */
+    .pureza-box {
+      background: linear-gradient(135deg, var(--color-verde) 0%, var(--color-dorado) 100%);
+      color: white;
+      padding: 3rem 2rem;
+      border-radius: 16px;
+      text-align: center;
+      box-shadow: 0 20px 50px rgba(5, 150, 105, 0.3);
     }
     
-    .bg-accent-green {
-      background-color: #059669;
+    .pureza-number {
+      font-size: 4.5rem;
+      font-weight: 900;
+      line-height: 1;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
     
-    .border-accent-green {
-      border-color: #059669;
-    }
-    
+    /* WhatsApp Flotante */
     .whatsapp-float {
       position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 1000;
-      animation: pulse 2s infinite;
+      bottom: 30px;
+      right: 30px;
+      z-index: 999;
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, #25d366 0%, #20ba5a 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+      transition: all 0.3s cubic-bezier(0.23, 1, 0.320, 1);
+      text-decoration: none;
+      animation: pulse-whats 2.5s infinite;
     }
     
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
+    .whatsapp-float:hover {
+      transform: scale(1.15);
+      box-shadow: 0 12px 40px rgba(37, 211, 102, 0.6);
+    }
+    
+    @keyframes pulse-whats {
+      0%, 100% { box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4); }
+      50% { box-shadow: 0 8px 40px rgba(37, 211, 102, 0.8); }
+    }
+    
+    .whatsapp-float svg {
+      width: 36px;
+      height: 36px;
+      fill: white;
+    }
+    
+    /* Section spacing */
+    section { scroll-margin-top: 80px; }
+    
+    /* Divider */
+    .divider-gradient {
+      background: linear-gradient(90deg, transparent, var(--color-verde), transparent);
+      height: 2px;
     }
   </style>
 </head>
-<body class="bg-stone-50 text-stone-900 antialiased">
+<body class="bg-white text-gray-900">
   
-  <!-- Header -->
-  <header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-stone-200/50">
-    <div class="max-w-6xl mx-auto px-6 py-4">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-3">
-          <div class="w-8 h-8 bg-accent-green rounded-full flex items-center justify-center">
-            <span class="text-white font-bold text-sm">S</span>
-          </div>
-          <span class="font-semibold text-xl tracking-tight">Sulfamix</span>
-        </div>
-        
-        <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
-          <a href="#inicio" class="text-stone-600 hover:text-stone-900 transition">Inicio</a>
-          <a href="#beneficios" class="text-stone-600 hover:text-stone-900 transition">Beneficios</a>
-          <a href="#resultados" class="text-stone-600 hover:text-stone-900 transition">Resultados</a>
-          <a href="#aplicacion" class="text-stone-600 hover:text-stone-900 transition">Aplicación</a>
-          <a href="#recursos" class="text-stone-600 hover:text-stone-900 transition">Recursos</a>
-          <a href="#faq" class="text-stone-600 hover:text-stone-900 transition">FAQ</a>
-          <a href="#contacto" class="text-stone-600 hover:text-stone-900 transition">Contacto</a>
-        </nav>
-        
-        <button class="md:hidden p-2">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
+  <!-- Header Sticky -->
+  <header class="fixed top-0 w-full z-40 bg-white/95 backdrop-blur-md border-b border-gray-200">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="/images/2.png" alt="Sulfamix" class="w-10 h-10">
+        <div class="font-bold text-xl tracking-tight">SULFAMIX</div>
       </div>
+      <nav class="hidden md:flex gap-8 text-sm font-medium">
+        <a href="#tecnologia" class="text-gray-600 hover:text-emerald-600 transition">Tecnología</a>
+        <a href="#conceptos" class="text-gray-600 hover:text-emerald-600 transition">Conceptos</a>
+        <a href="#resultados" class="text-gray-600 hover:text-emerald-600 transition">Resultados</a>
+        <a href="#certificacion" class="text-gray-600 hover:text-emerald-600 transition">Certificación</a>
+        <a href="#aplicacion" class="text-gray-600 hover:text-emerald-600 transition">Aplicación</a>
+      </nav>
+      <a href="https://wa.link/n73e02" target="_blank" class="hidden md:flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-lg text-sm font-semibold hover:bg-emerald-700 transition">
+        💬 WhatsApp
+      </a>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section id="inicio" class="pt-20 pb-16 md:pt-32 md:pb-24 relative overflow-hidden">
-    <div class="absolute inset-0 opacity-5">
-      <svg viewBox="0 0 1200 800" class="w-full h-full object-cover">
-        <defs>
-          <linearGradient id="fieldGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" style="stop-color:#86efac;stop-opacity:1" />
-            <stop offset="100%" style="stop-color:#22c55e;stop-opacity:1" />
-          </linearGradient>
-        </defs>
-        <rect width="1200" height="400" fill="url(#fieldGradient)"/>
-        <g opacity="0.6">
-          <circle cx="200" cy="350" r="40" fill="#16a34a"/>
-          <rect x="195" y="350" width="10" height="30" fill="#92400e"/>
-          <circle cx="400" cy="340" r="45" fill="#16a34a"/>
-          <rect x="395" y="340" width="10" height="35" fill="#92400e"/>
-          <circle cx="600" cy="360" r="38" fill="#16a34a"/>
-          <rect x="595" y="360" width="10" height="28" fill="#92400e"/>
-        </g>
-      </svg>
+  <!-- HERO -->
+  <section class="relative min-h-screen pt-20 overflow-hidden flex items-center">
+    <div class="absolute inset-0 z-0">
+      <img src="/images/Sulfamix_agricultural_hero_banner.png" alt="Campo" class="w-full h-full object-cover">
+      <div class="hero-overlay"></div>
+      <div class="hero-gradient absolute inset-0"></div>
     </div>
-
-    <div class="max-w-6xl mx-auto px-6 relative z-10">
-      <div class="text-center max-w-4xl mx-auto">
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 text-sm font-medium mb-8 fade-in">
-          <div class="w-2 h-2 bg-emerald-500 rounded-full"></div>
-          100% Natural • Sostenible • Comprobado
+    
+    <div class="relative z-10 max-w-7xl mx-auto px-6 w-full">
+      <div class="max-w-3xl">
+        <div class="mb-6 animate-fade">
+          <span class="inline-block px-4 py-2 bg-white/15 backdrop-blur-sm text-white text-sm font-semibold rounded-full border border-white/30">
+            ✓ Directo de Cantera • Certificado BCRlabs • 98% Pureza
+          </span>
         </div>
         
-        <h1 class="text-4xl md:text-6xl lg:text-7xl font-light leading-tight mb-8 text-shadow fade-in">
-          Yeso agrícola (sulfato de calcio) para
-          <span class="font-semibold accent-green block">Agricultura Inteligente</span>
-          <span class="text-2xl md:text-3xl lg:text-4xl font-medium text-stone-700 block mt-2">Suelos expandidos bien nutridos • Reemplazo de agroquímicos</span>
+        <h1 class="text-6xl md:text-7xl lg:text-8xl font-ultra-light text-white mb-6 leading-tight animate-in-up stagger-1">
+          Yeso Agrícola para <span class="font-bold block text-amber-300">Agricultura Inteligente</span>
         </h1>
         
-        <p class="text-xl md:text-2xl text-stone-600 font-light leading-relaxed mb-12 max-w-3xl mx-auto slide-up">
-          Transformamos suelos degradados en ecosistemas productivos con sulfato de calcio natural, 
-          mejorando la estructura del suelo y aumentando rendimientos de manera sostenible.
+        <p class="text-xl md:text-2xl text-gray-100 font-super-light leading-relaxed mb-8 max-w-2xl animate-in-up stagger-2">
+          Reemplazo de agroquímicos. Suelos expandidos bien nutridos. Transformamos suelos degradados en ecosistemas productivos.
         </p>
         
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 slide-up">
-          <a href="#beneficios" class="px-8 py-4 bg-accent-green text-white rounded-lg font-medium hover-lift">
-            Conocer Beneficios
+        <div class="flex flex-col sm:flex-row gap-4 mb-16 animate-in-up stagger-3">
+          <a href="#conceptos" class="px-8 py-4 bg-white text-emerald-600 font-bold rounded-lg hover:bg-amber-300 transition shadow-lg">
+            Descubrir Más
           </a>
-          <a href="#contacto" class="px-8 py-4 border border-stone-300 rounded-lg font-medium hover-lift">
-            Solicitar Información
+          <a href="https://wa.link/n73e02" target="_blank" class="px-8 py-4 border-2 border-white text-white font-bold rounded-lg hover:bg-white/10 transition">
+            Consulta Técnica
           </a>
         </div>
         
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto">
-          <div class="text-center scale-in">
-            <div class="text-3xl font-light accent-green mb-2">+35%</div>
-            <div class="text-stone-600 text-sm">Aumento en Rendimiento</div>
+        <div class="grid grid-cols-3 gap-8 max-w-2xl animate-in-up stagger-4">
+          <div>
+            <div class="stat-number">+35%</div>
+            <p class="text-gray-100 text-sm font-light mt-2">Rendimiento</p>
           </div>
-          <div class="text-center scale-in" style="animation-delay: 0.1s">
-            <div class="text-3xl font-light accent-green mb-2">-40%</div>
-            <div class="text-stone-600 text-sm">Reducción en Salinidad</div>
+          <div>
+            <div class="stat-number">98%</div>
+            <p class="text-gray-100 text-sm font-light mt-2">Pureza</p>
           </div>
-          <div class="text-center scale-in" style="animation-delay: 0.2s">
-            <div class="text-3xl font-light accent-green mb-2">+50%</div>
-            <div class="text-stone-600 text-sm">Retención de Agua</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Beneficios -->
-  <section id="beneficios" class="py-16 md:py-24">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-16 fade-in">
-        <h2 class="text-3xl md:text-4xl font-light mb-4">Beneficios del Yeso Agrícola</h2>
-        <p class="text-xl text-stone-600 font-light max-w-2xl mx-auto">
-          Cada aplicación de sulfato de calcio genera mejoras medibles y duraderas en tu sistema agrícola.
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <div class="minimal-card rounded-xl p-8 hover-lift slide-up">
-          <div class="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-6">
-            <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-medium mb-3">Menos Agroquímicos, Más Eficiencia</h3>
-          <p class="text-stone-600 leading-relaxed">
-            Mejora la disponibilidad de nutrientes, reduciendo la necesidad de fertilizantes y correctores químicos.
-          </p>
-        </div>
-
-        <div class="minimal-card rounded-xl p-8 hover-lift slide-up" style="animation-delay: 0.1s">
-          <div class="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-6">
-            <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-medium mb-3">Rendimientos Visiblemente Superiores</h3>
-          <p class="text-stone-600 leading-relaxed">
-            Mejora la estructura del suelo y absorción radicular, aumentando productividad en cultivos intensivos.
-          </p>
-        </div>
-
-        <div class="minimal-card rounded-xl p-8 hover-lift slide-up" style="animation-delay: 0.2s">
-          <div class="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-6">
-            <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-medium mb-3">Frutos Más Grandes y Uniformes</h3>
-          <p class="text-stone-600 leading-relaxed">
-            Optimiza la hidratación y transporte de calcio, clave para la calidad y firmeza de los frutos.
-          </p>
-        </div>
-
-        <div class="minimal-card rounded-xl p-8 hover-lift slide-up" style="animation-delay: 0.3s">
-          <div class="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-6">
-            <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-medium mb-3">Recuperación de Suelos Degradados</h3>
-          <p class="text-stone-600 leading-relaxed">
-            Neutraliza el sodio intercambiable y mejora infiltración, restaurando suelos salinizados.
-          </p>
-        </div>
-
-        <div class="minimal-card rounded-xl p-8 hover-lift slide-up" style="animation-delay: 0.4s">
-          <div class="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-6">
-            <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-medium mb-3">Mayor Producción, Menor Estrés Hídrico</h3>
-          <p class="text-stone-600 leading-relaxed">
-            Aumenta porosidad y retención de humedad, ideal para zonas con riego limitado.
-          </p>
-        </div>
-
-        <div class="minimal-card rounded-xl p-8 hover-lift slide-up" style="animation-delay: 0.5s">
-          <div class="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-6">
-            <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-medium mb-3">Aplicación Simple, Resultados Medibles</h3>
-          <p class="text-stone-600 leading-relaxed">
-            Compatible con prácticas convencionales. Resultados visibles desde el primer ciclo.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Resultados -->
-  <section id="resultados" class="py-16 md:py-24 bg-stone-25">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-16 fade-in">
-        <h2 class="text-3xl md:text-4xl font-light mb-4">Resultados Comprobados</h2>
-        <p class="text-xl text-stone-600 font-light max-w-3xl mx-auto">
-          Estudios realizados por instituciones de prestigio internacional demuestran la efectividad del sulfato de calcio en diferentes cultivos y condiciones.
-        </p>
-      </div>
-
-      <!-- Instituciones de Investigación -->
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-        <!-- INTA Argentina -->
-        <div class="minimal-card rounded-xl p-6 text-center hover-lift scale-in">
-          <div class="w-20 h-20 mx-auto mb-4 flex items-center justify-center">
-            <svg viewBox="0 0 120 120" class="w-full h-full">
-              <circle cx="60" cy="60" r="55" fill="#1e40af" stroke="#ffffff" stroke-width="2"/>
-              <text x="60" y="45" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="16" font-weight="bold">INTA</text>
-              <text x="60" y="65" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="8">ARGENTINA</text>
-              <text x="60" y="80" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="6">Instituto Nacional</text>
-              <text x="60" y="90" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="6">Tecnología Agropecuaria</text>
-            </svg>
-          </div>
-          <h3 class="font-semibold text-sm mb-1">INTA Argentina</h3>
-          <p class="text-stone-600 text-xs">Instituto Nacional de Tecnología Agropecuaria</p>
-          <div class="text-emerald-600 font-medium text-xs mt-2">15+ estudios publicados</div>
-        </div>
-
-        <!-- Ohio State University -->
-        <div class="minimal-card rounded-xl p-6 text-center hover-lift scale-in" style="animation-delay: 0.1s">
-          <div class="w-20 h-20 mx-auto mb-4 flex items-center justify-center">
-            <svg viewBox="0 0 120 120" class="w-full h-full">
-              <circle cx="60" cy="60" r="55" fill="#bb0000"/>
-              <circle cx="60" cy="60" r="45" fill="white"/>
-              <circle cx="60" cy="60" r="35" fill="#bb0000"/>
-              <text x="60" y="45" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="14" font-weight="bold">OSU</text>
-              <text x="60" y="65" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="8">OHIO</text>
-              <text x="60" y="78" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="8">STATE</text>
-              <text x="60" y="90" text-anchor="middle" fill="white" font-family="Arial, sans-serif" font-size="6">UNIVERSITY</text>
-            </svg>
-          </div>
-          <h3 class="font-semibold text-sm mb-1">Ohio State</h3>
-          <p class="text-stone-600 text-xs">The Ohio State University</p>
-          <div class="text-emerald-600 font-medium text-xs mt-2">25+ publicaciones</div>
-        </div>
-
-        <!-- CETAPAR -->
-        <div class="minimal-card rounded-xl p-6 text-center hover-lift scale-in" style="animation-delay: 0.2s">
-          <div class="w-20 h-20 mx-auto mb-4 flex items-center justify-center">
-            <svg viewBox="0 0 120 120" class="w-full h-full">
-              <circle cx="60" cy="60" r="55" fill="#228b22"/>
-              <circle cx="60" cy="60" r="40" fill="white"/>
-              <text x="60" y="40" text-anchor="middle" fill="#228b22" font-family="Arial, sans-serif" font-size="10" font-weight="bold">CETAPAR</text>
-              <text x="60" y="55" text-anchor="middle" fill="#228b22" font-family="Arial, sans-serif" font-size="6">Centro Tecnológico</text>
-              <text x="60" y="65" text-anchor="middle" fill="#228b22" font-family="Arial, sans-serif" font-size="6">Agropecuario</text>
-              <text x="60" y="75" text-anchor="middle" fill="#228b22" font-family="Arial, sans-serif" font-size="6">del Paraguay</text>
-              <circle cx="45" cy="85" r="3" fill="#228b22"/>
-              <circle cx="60" cy="85" r="3" fill="#228b22"/>
-              <circle cx="75" cy="85" r="3" fill="#228b22"/>
-            </svg>
-          </div>
-          <h3 class="font-semibold text-sm mb-1">CETAPAR</h3>
-          <p class="text-stone-600 text-xs">Centro Tecnológico Agropecuario</p>
-          <div class="text-emerald-600 font-medium text-xs mt-2">8+ investigaciones</div>
-        </div>
-
-        <!-- FAO -->
-        <div class="minimal-card rounded-xl p-6 text-center hover-lift scale-in" style="animation-delay: 0.3s">
-          <div class="w-20 h-20 mx-auto mb-4 flex items-center justify-center">
-            <svg viewBox="0 0 120 120" class="w-full h-full">
-              <circle cx="60" cy="60" r="55" fill="#0066cc"/>
-              <circle cx="60" cy="60" r="45" fill="white"/>
-              <path d="M60 25 L60 95 M50 30 Q60 25 70 30 M48 35 Q60 30 72 35 M46 40 Q60 35 74 40 M44 45 Q60 40 76 45 M42 50 Q60 45 78 50" 
-                    stroke="#0066cc" stroke-width="2" fill="none"/>
-              <text x="60" y="105" text-anchor="middle" fill="#0066cc" font-family="Arial, sans-serif" font-size="8" font-weight="bold">FAO</text>
-              <path d="M30 60 Q45 45 60 60 Q75 45 90 60 Q75 75 60 60 Q45 75 30 60" 
-                    stroke="#0066cc" stroke-width="1" fill="none"/>
-            </svg>
-          </div>
-          <h3 class="font-semibold text-sm mb-1">FAO</h3>
-          <p class="text-stone-600 text-xs">Organización de las Naciones Unidas</p>
-          <div class="text-emerald-600 font-medium text-xs mt-2">Programa Global</div>
-        </div>
-      </div>
-
-      <!-- Estudios por Cultivo -->
-      <div class="space-y-8 mb-16">
-        <!-- Soja -->
-        <div class="minimal-card rounded-xl p-8 slide-up">
-          <div class="flex items-start gap-6">
-            <div class="w-16 h-16 bg-emerald-100 rounded-xl flex items-center justify-center flex-shrink-0">
-              <svg class="w-8 h-8 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
-              </svg>
-            </div>
-            <div class="flex-1">
-              <h3 class="text-xl font-semibold mb-3">Yeso Agrícola en Soja - Estudios INTA Marcos Juárez</h3>
-              <div class="grid md:grid-cols-3 gap-6 mb-4">
-                <div class="bg-emerald-50 rounded-lg p-4">
-                  <div class="text-2xl font-bold text-emerald-700 mb-1">+18%</div>
-                  <div class="text-sm text-emerald-600">Rendimiento promedio</div>
-                  <div class="text-xs text-stone-600 mt-1">3.2 → 3.8 ton/ha</div>
-                </div>
-                <div class="bg-blue-50 rounded-lg p-4">
-                  <div class="text-2xl font-bold text-blue-700 mb-1">-35%</div>
-                  <div class="text-sm text-blue-600">Sodio intercambiable</div>
-                  <div class="text-xs text-stone-600 mt-1">Mejora estructura</div>
-                </div>
-                <div class="bg-amber-50 rounded-lg p-4">
-                  <div class="text-2xl font-bold text-amber-700 mb-1">+42%</div>
-                  <div class="text-sm text-amber-600">Infiltración agua</div>
-                  <div class="text-xs text-stone-600 mt-1">15 → 21 mm/h</div>
-                </div>
-              </div>
-              <p class="text-stone-600 text-sm mb-3">
-                <strong>Investigador Principal:</strong> Dr. Hernán Sainz Rozas - EEA Balcarce INTA (2019-2022)
-              </p>
-              <p class="text-stone-600 text-sm">
-                Ensayos en suelos con limitaciones por sodicidad en la región pampeana. Aplicación de 500 kg/ha de yeso agrícola mostró mejoras significativas en propiedades físicas y químicas del suelo.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Maíz -->
-        <div class="minimal-card rounded-xl p-8 slide-up">
-          <div class="flex items-start gap-6">
-            <div class="w-16 h-16 bg-yellow-100 rounded-xl flex items-center justify-center flex-shrink-0">
-              <svg class="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-              </svg>
-            </div>
-            <div class="flex-1">
-              <h3 class="text-xl font-semibold mb-3">Sulfato de Calcio en Maíz - Ohio State University</h3>
-              <div class="grid md:grid-cols-3 gap-6 mb-4">
-                <div class="bg-yellow-50 rounded-lg p-4">
-                  <div class="text-2xl font-bold text-yellow-700 mb-1">+24%</div>
-                  <div class="text-sm text-yellow-600">Productividad</div>
-                  <div class="text-xs text-stone-600 mt-1">8.5 → 10.5 ton/ha</div>
-                </div>
-                <div class="bg-green-50 rounded-lg p-4">
-                  <div class="text-2xl font-bold text-green-700 mb-1">+58%</div>
-                  <div class="text-sm text-green-600">Absorción Ca</div>
-                  <div class="text-xs text-stone-600 mt-1">Mejor nutrición</div>
-                </div>
-                <div class="bg-blue-50 rounded-lg p-4">
-                  <div class="text-2xl font-bold text-blue-700 mb-1">+31%</div>
-                  <div class="text-sm text-blue-600">Eficiencia hídrica</div>
-                  <div class="text-xs text-stone-600 mt-1">kg grano/mm agua</div>
-                </div>
-              </div>
-              <p class="text-stone-600 text-sm mb-3">
-                <strong>Investigador Principal:</strong> Dr. Warren Dick - School of Environment and Natural Resources (2018-2021)
-              </p>
-              <p class="text-stone-600 text-sm">
-                Estudio en suelos con pH subóptimo del Medio Oeste americano. Aplicación de yeso FGD (Flue Gas Desulfurization) en rotación maíz-soja durante 4 años consecutivos.
-              </p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Sésamo Paraguay -->
-        <div class="minimal-card rounded-xl p-8 slide-up">
-          <div class="flex items-start gap-6">
-            <div class="w-16 h-16 bg-amber-100 rounded-xl flex items-center justify-center flex-shrink-0">
-              <svg class="w-8 h-8 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
-              </svg>
-            </div>
-            <div class="flex-1">
-              <h3 class="text-xl font-semibold mb-3">Sésamo en Paraguay - CETAPAR & Universidad Nacional</h3>
-              <div class="grid md:grid-cols-3 gap-6 mb-4">
-                <div class="bg-amber-50 rounded-lg p-4">
-                  <div class="text-2xl font-bold text-amber-700 mb-1">+32%</div>
-                  <div class="text-sm text-amber-600">Rendimiento grano</div>
-                  <div class="text-xs text-stone-600 mt-1">850 → 1.120 kg/ha</div>
-                </div>
-                <div class="bg-green-50 rounded-lg p-4">
-                  <div class="text-2xl font-bold text-green-700 mb-1">+48%</div>
-                  <div class="text-sm text-green-600">Contenido aceite</div>
-                  <div class="text-xs text-stone-600 mt-1">Mejor calidad</div>
-                </div>
-                <div class="bg-blue-50 rounded-lg p-4">
-                  <div class="text-2xl font-bold text-blue-700 mb-1">-41%</div>
-                  <div class="text-sm text-blue-600">Estrés hídrico</div>
-                  <div class="text-xs text-stone-600 mt-1">Mayor resistencia</div>
-                </div>
-              </div>
-              <p class="text-stone-600 text-sm mb-3">
-                <strong>Investigadores:</strong> Dr. Miguel Almada (CETAPAR) - Ing. Agr. MSc. Rubén Sanabria (FCA-UNA)
-              </p>
-              <p class="text-stone-600 text-sm">
-                Ensayos en suelos Oxisoles rojos del Departamento de Itapúa con aplicación de yeso agrícola en sésamo variedad Escoba Blanca. Evaluación durante 3 campañas en condiciones de secano y riego complementario.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Programa FAO Mercosur -->
-      <div class="minimal-card rounded-xl p-8 mb-16 slide-up">
-        <div class="text-center mb-8">
-          <div class="w-24 h-24 mx-auto mb-6 flex items-center justify-center">
-            <svg viewBox="0 0 120 120" class="w-full h-full">
-              <circle cx="60" cy="60" r="55" fill="#0066cc"/>
-              <circle cx="60" cy="60" r="45" fill="white"/>
-              <path d="M60 20 L60 100 M45 25 Q60 20 75 25 M43 30 Q60 25 77 30 M41 35 Q60 30 79 35 M39 40 Q60 35 81 40 M37 45 Q60 40 83 45 M35 50 Q60 45 85 50" 
-                    stroke="#0066cc" stroke-width="2.5" fill="none"/>
-              <path d="M25 60 Q40 40 60 60 Q80 40 95 60 Q80 80 60 60 Q40 80 25 60" 
-                    stroke="#0066cc" stroke-width="1.5" fill="none"/>
-              <ellipse cx="35" cy="50" rx="3" ry="6" fill="#0066cc" transform="rotate(-30 35 50)"/>
-              <ellipse cx="85" cy="50" rx="3" ry="6" fill="#0066cc" transform="rotate(30 85 50)"/>
-              <ellipse cx="35" cy="70" rx="3" ry="6" fill="#0066cc" transform="rotate(30 35 70)"/>
-              <ellipse cx="85" cy="70" rx="3" ry="6" fill="#0066cc" transform="rotate(-30 85 70)"/>
-            </svg>
-          </div>
-          <h3 class="text-3xl font-medium mb-4">Programa FAO Mercosur - Rehabilitación de Suelos</h3>
-          <p class="text-xl text-stone-600 font-light max-w-4xl mx-auto">
-            La Organización de las Naciones Unidas para la Alimentación y la Agricultura lidera el programa más ambicioso de recuperación de suelos degradados utilizando sulfato de calcio.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
-          <div class="text-center minimal-card rounded-xl p-6 scale-in">
-            <div class="text-4xl font-light text-blue-600 mb-2">4</div>
-            <div class="text-stone-600 text-sm font-medium">Países Participantes</div>
-            <div class="text-xs text-stone-500 mt-1">Argentina, Brasil, Paraguay, Uruguay</div>
-          </div>
-          <div class="text-center minimal-card rounded-xl p-6 scale-in" style="animation-delay: 0.1s">
-            <div class="text-4xl font-light text-blue-600 mb-2">1.05M</div>
-            <div class="text-stone-600 text-sm font-medium">Hectáreas Tratadas</div>
-            <div class="text-xs text-stone-500 mt-1">2019-2024</div>
-          </div>
-          <div class="text-center minimal-card rounded-xl p-6 scale-in" style="animation-delay: 0.2s">
-            <div class="text-4xl font-light text-blue-600 mb-2">31,550</div>
-            <div class="text-stone-600 text-sm font-medium">Productores Beneficiados</div>
-            <div class="text-xs text-stone-500 mt-1">Familias rurales</div>
-          </div>
-          <div class="text-center minimal-card rounded-xl p-6 scale-in" style="animation-delay: 0.3s">
-            <div class="text-4xl font-light text-blue-600 mb-2">+29%</div>
-            <div class="text-stone-600 text-sm font-medium">Incremento Promedio</div>
-            <div class="text-xs text-stone-500 mt-1">Productividad regional</div>
-          </div>
-        </div>
-
-        <div class="bg-blue-50 rounded-xl p-6 text-center">
-          <h4 class="font-semibold text-blue-800 mb-3">🎯 Resultados Destacados del Programa</h4>
-          <div class="grid md:grid-cols-2 gap-6 text-sm">
-            <div>
-              <ul class="text-blue-700 space-y-2 text-left">
-                <li>• <strong>Argentina:</strong> 285,000 ha tratadas, +22% rendimiento promedio</li>
-                <li>• <strong>Brasil:</strong> 420,000 ha en Cerrado, +26% productividad soja-maíz</li>
-                <li>• <strong>Paraguay:</strong> 95,000 ha recuperadas, +32% rendimiento soja</li>
-                <li>• <strong>Uruguay:</strong> 65,000 ha ganaderas, +28% productividad pasturas</li>
-              </ul>
-            </div>
-            <div>
-              <ul class="text-blue-700 space-y-2 text-left">
-                <li>• <strong>Inversión total:</strong> USD 160 millones (2019-2024)</li>
-                <li>• <strong>ROI promedio:</strong> 4.2:1 en toda la región</li>
-                <li>• <strong>Reducción pobreza rural:</strong> 28% en zonas intervenidas</li>
-                <li>• <strong>Certificación sostenible:</strong> 85% de productores</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Métricas Consolidadas -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-        <div class="text-center minimal-card rounded-xl p-6 scale-in">
-          <div class="text-3xl font-light accent-green mb-2">60+</div>
-          <div class="text-stone-600 text-sm">Estudios Científicos</div>
-          <div class="text-xs text-stone-500 mt-1">Instituciones reconocidas</div>
-        </div>
-        <div class="text-center minimal-card rounded-xl p-6 scale-in" style="animation-delay: 0.1s">
-          <div class="text-3xl font-light accent-green mb-2">18-32%</div>
-          <div class="text-stone-600 text-sm">Incremento Rendimiento</div>
-          <div class="text-xs text-stone-500 mt-1">Promedio cultivos</div>
-        </div>
-        <div class="text-center minimal-card rounded-xl p-6 scale-in" style="animation-delay: 0.2s">
-          <div class="text-3xl font-light accent-green mb-2">9</div>
-          <div class="text-stone-600 text-sm">Países Investigados</div>
-          <div class="text-xs text-stone-500 mt-1">Argentina, Brasil, Paraguay, EE.UU., etc.</div>
-        </div>
-        <div class="text-center minimal-card rounded-xl p-6 scale-in" style="animation-delay: 0.3s">
-          <div class="text-3xl font-light accent-green mb-2">25+</div>
-          <div class="text-stone-600 text-sm">Años de Investigación</div>
-          <div class="text-xs text-stone-500 mt-1">Datos longitudinales</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Recursos Técnicos -->
-  <section id="recursos" class="py-16 md:py-24 bg-gradient-to-br from-blue-50 to-indigo-50">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-16 fade-in">
-        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 border border-blue-200 text-blue-700 text-sm font-medium mb-8">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-          </svg>
-          Recursos Técnicos Profesionales
-        </div>
-        <h2 class="text-3xl md:text-4xl font-light mb-4">Guías Técnicas para Ingenieros Agrónomos</h2>
-        <p class="text-xl text-stone-600 font-light max-w-3xl mx-auto">
-          Documentación científica completa con protocolos de aplicación, análisis de laboratorio y estudios de impacto para profesionales del sector.
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Guía Completa de Aplicación -->
-        <div class="minimal-card rounded-xl p-8 hover-lift slide-up">
-          <div class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
-            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">Guía Completa de Aplicación</h3>
-          <p class="text-stone-600 text-sm mb-6 leading-relaxed">
-            Manual técnico con dosificaciones específicas por cultivo, métodos de aplicación, compatibilidades y protocolos de monitoreo post-aplicación.
-          </p>
-          <div class="space-y-2 mb-6 text-xs text-stone-500">
-            <div class="flex justify-between">
-              <span>Páginas:</span>
-              <span>45 páginas</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Actualizado:</span>
-              <span>Diciembre 2024</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Incluye:</span>
-              <span>Tablas, gráficos, casos</span>
-            </div>
-          </div>
-          <button onclick="generateTechnicalPDF('aplicacion')" class="w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors hover-lift">
-            📄 Descargar PDF (2.1 MB)
-          </button>
-        </div>
-
-        <!-- Protocolos de Laboratorio -->
-        <div class="minimal-card rounded-xl p-8 hover-lift slide-up" style="animation-delay: 0.1s">
-          <div class="w-16 h-16 bg-emerald-100 rounded-xl flex items-center justify-center mb-6">
-            <svg class="w-8 h-8 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 7.172V5L8 4z"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">Protocolos de Laboratorio</h3>
-          <p class="text-stone-600 text-sm mb-6 leading-relaxed">
-            Metodologías estandarizadas para análisis de suelos, determinación de necesidades de yeso, interpretación de resultados y seguimiento de eficacia.
-          </p>
-          <div class="space-y-2 mb-6 text-xs text-stone-500">
-            <div class="flex justify-between">
-              <span>Páginas:</span>
-              <span>32 páginas</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Actualizado:</span>
-              <span>Noviembre 2024</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Incluye:</span>
-              <span>Métodos INTA, FAO, USDA</span>
-            </div>
-          </div>
-          <button onclick="generateTechnicalPDF('laboratorio')" class="w-full px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-medium transition-colors hover-lift">
-            🧪 Descargar PDF (1.8 MB)
-          </button>
-        </div>
-
-        <!-- Estudios de Impacto -->
-        <div class="minimal-card rounded-xl p-8 hover-lift slide-up" style="animation-delay: 0.2s">
-          <div class="w-16 h-16 bg-amber-100 rounded-xl flex items-center justify-center mb-6">
-            <svg class="w-8 h-8 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">Estudios de Impacto</h3>
-          <p class="text-stone-600 text-sm mb-6 leading-relaxed">
-            Compilación de investigaciones científicas, análisis estadísticos de rendimientos, impacto económico y evaluación de sostenibilidad ambiental.
-          </p>
-          <div class="space-y-2 mb-6 text-xs text-stone-500">
-            <div class="flex justify-between">
-              <span>Páginas:</span>
-              <span>68 páginas</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Actualizado:</span>
-              <span>Diciembre 2024</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Incluye:</span>
-              <span>60+ estudios, ROI, LCA</span>
-            </div>
-          </div>
-          <button onclick="generateTechnicalPDF('impacto')" class="w-full px-6 py-3 bg-amber-600 hover:bg-amber-700 text-white rounded-lg font-medium transition-colors hover-lift">
-            📊 Descargar PDF (3.4 MB)
-          </button>
-        </div>
-
-        <!-- Calculadora de Dosis -->
-        <div class="minimal-card rounded-xl p-8 hover-lift slide-up" style="animation-delay: 0.3s">
-          <div class="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
-            <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">Calculadora de Dosis</h3>
-          <p class="text-stone-600 text-sm mb-6 leading-relaxed">
-            Herramienta interactiva para calcular dosis óptimas basada en análisis de suelo, cultivo objetivo, método de aplicación y condiciones específicas del lote.
-          </p>
-          <div class="space-y-2 mb-6 text-xs text-stone-500">
-            <div class="flex justify-between">
-              <span>Formato:</span>
-              <span>Excel + PDF</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Actualizado:</span>
-              <span>Diciembre 2024</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Incluye:</span>
-              <span>Macros, validaciones</span>
-            </div>
-          </div>
-          <button onclick="generateCalculatorPDF()" class="w-full px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-medium transition-colors hover-lift">
-            🧮 Descargar Herramienta
-          </button>
-        </div>
-
-        <!-- Fichas Técnicas por Cultivo -->
-        <div class="minimal-card rounded-xl p-8 hover-lift slide-up" style="animation-delay: 0.4s">
-          <div class="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mb-6">
-            <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">Fichas por Cultivo</h3>
-          <p class="text-stone-600 text-sm mb-6 leading-relaxed">
-            Fichas técnicas específicas para soja, maíz, trigo, hortalizas y frutales con recomendaciones precisas, momentos de aplicación y casos de éxito documentados.
-          </p>
-          <div class="space-y-2 mb-6 text-xs text-stone-500">
-            <div class="flex justify-between">
-              <span>Cultivos:</span>
-              <span>15 fichas técnicas</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Actualizado:</span>
-              <span>Noviembre 2024</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Incluye:</span>
-              <span>Cronogramas, fotos</span>
-            </div>
-          </div>
-          <button onclick="generateCropPDF()" class="w-full px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-medium transition-colors hover-lift">
-            🌱 Descargar Fichas
-          </button>
-        </div>
-
-        <!-- Certificaciones y Normativas -->
-        <div class="minimal-card rounded-xl p-8 hover-lift slide-up" style="animation-delay: 0.5s">
-          <div class="w-16 h-16 bg-indigo-100 rounded-xl flex items-center justify-center mb-6">
-            <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-semibold mb-3">Certificaciones y Normativas</h3>
-          <p class="text-stone-600 text-sm mb-6 leading-relaxed">
-            Documentación completa de certificaciones SENASA, OMRI, ISO 9001, normativas internacionales y requisitos para agricultura orgánica certificada.
-          </p>
-          <div class="space-y-2 mb-6 text-xs text-stone-500">
-            <div class="flex justify-between">
-              <span>Páginas:</span>
-              <span>28 páginas</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Actualizado:</span>
-              <span>Octubre 2024</span>
-            </div>
-            <div class="flex justify-between">
-              <span>Incluye:</span>
-              <span>Certificados, normativas</span>
-            </div>
-          </div>
-          <button onclick="generateCertificationPDF()" class="w-full px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-medium transition-colors hover-lift">
-            🏆 Descargar PDF (1.2 MB)
-          </button>
-        </div>
-      </div>
-
-      <!-- Paquete Completo -->
-      <div class="mt-16 minimal-card rounded-xl p-8 bg-gradient-to-r from-slate-50 to-blue-50 border-2 border-blue-200 scale-in">
-        <div class="text-center">
-          <div class="w-20 h-20 bg-blue-600 rounded-xl flex items-center justify-center mx-auto mb-6">
-            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
-            </svg>
-          </div>
-          <h3 class="text-2xl font-semibold mb-4">📚 Biblioteca Técnica Completa</h3>
-          <p class="text-stone-600 mb-6 max-w-2xl mx-auto">
-            Descarga todos los recursos técnicos en un solo paquete. Más de 200 páginas de documentación científica, protocolos y herramientas para profesionales.
-          </p>
-          <div class="grid md:grid-cols-3 gap-6 mb-8 text-sm">
-            <div class="bg-white rounded-lg p-4">
-              <div class="font-semibold text-blue-700 mb-1">6 Documentos PDF</div>
-              <div class="text-stone-600">Guías, protocolos, estudios</div>
-            </div>
-            <div class="bg-white rounded-lg p-4">
-              <div class="font-semibold text-blue-700 mb-1">Herramientas Excel</div>
-              <div class="text-stone-600">Calculadoras interactivas</div>
-            </div>
-            <div class="bg-white rounded-lg p-4">
-              <div class="font-semibold text-blue-700 mb-1">Actualizaciones</div>
-              <div class="text-stone-600">Acceso a nuevas versiones</div>
-            </div>
-          </div>
-          <button onclick="generateCompletePDF()" class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold text-lg hover-lift transition-colors">
-            📦 Descargar Biblioteca Completa (8.5 MB)
-          </button>
-          <div class="text-xs text-stone-500 mt-4">
-            Formato ZIP con todos los archivos organizados por categoría
+          <div>
+            <div class="stat-number">18.05%</div>
+            <p class="text-gray-100 text-sm font-light mt-2">SO₄</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="py-16 md:py-20 bg-gradient-to-br from-emerald-50 to-blue-50 relative overflow-hidden">
-    <div class="absolute inset-0 opacity-5">
-      <svg viewBox="0 0 1200 600" class="w-full h-full">
-        <defs>
-          <pattern id="cropPattern" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
-            <circle cx="30" cy="30" r="2" fill="#059669"/>
-            <circle cx="15" cy="15" r="1.5" fill="#0d9488"/>
-            <circle cx="45" cy="45" r="1.5" fill="#0d9488"/>
-            <circle cx="15" cy="45" r="1" fill="#14b8a6"/>
-            <circle cx="45" cy="15" r="1" fill="#14b8a6"/>
-          </pattern>
-        </defs>
-        <rect width="1200" height="600" fill="url(#cropPattern)"/>
-      </svg>
-    </div>
-
-    <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
-      <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-100 border border-emerald-200 text-emerald-700 text-sm font-medium mb-8 fade-in">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-        </svg>
-        Resultados Comprobados • Aplicación Inmediata
+  <!-- CONCEPTOS CLAVE -->
+  <section id="conceptos" class="py-24 bg-gradient-to-b from-white to-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-20">
+        <h2 class="text-5xl md:text-6xl font-thin mb-6">El Cambio que Necesita tu Suelo</h2>
+        <p class="text-xl text-gray-600 font-light max-w-2xl mx-auto">Tres conceptos revolucionarios que transforman agricultura</p>
       </div>
-
-      <h2 class="text-3xl md:text-5xl font-light leading-tight mb-6 fade-in">
-        ¿Listo para <span class="font-semibold text-emerald-700">Transformar</span><br>
-        <span class="text-2xl md:text-3xl text-stone-700">tus Rendimientos?</span>
-      </h2>
-
-      <p class="text-xl text-stone-600 font-light leading-relaxed mb-12 max-w-2xl mx-auto slide-up">
-        Miles de productores ya están obteniendo <strong>+18% a +32% más rendimiento</strong> con sulfato de calcio. 
-        Tu suelo puede ser el próximo en transformarse.
-      </p>
-
-      <!-- Beneficios Rápidos -->
-      <div class="grid md:grid-cols-3 gap-6 mb-12">
-        <div class="minimal-card rounded-xl p-6 hover-lift scale-in">
-          <div class="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-            <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-          </div>
-          <h3 class="font-semibold mb-2">Resultados Rápidos</h3>
-          <p class="text-stone-600 text-sm">Mejoras visibles desde el primer ciclo de cultivo</p>
+      
+      <div class="grid md:grid-cols-3 gap-12">
+        <!-- Concepto 1 -->
+        <div class="card-clean animate-in-up stagger-1">
+          <div class="text-5xl mb-6">🌱</div>
+          <h3 class="text-2xl font-bold mb-4">Reemplazo de Agroquímicos</h3>
+          <p class="text-gray-600 font-light leading-relaxed">
+            Reduce dependencia de fertilizantes químicos. Sulfamix restaura capacidad natural del suelo, mejorando disponibilidad de nutrientes sin insumos sintéticos.
+          </p>
         </div>
-
-        <div class="minimal-card rounded-xl p-6 hover-lift scale-in" style="animation-delay: 0.1s">
-          <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-            <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-          </div>
-          <h3 class="font-semibold mb-2">Aplicación Simple</h3>
-          <p class="text-stone-600 text-sm">Compatible con tu maquinaria y prácticas actuales</p>
+        
+        <!-- Concepto 2 -->
+        <div class="card-clean animate-in-up stagger-2">
+          <div class="text-5xl mb-6">📈</div>
+          <h3 class="text-2xl font-bold mb-4">Agricultura Inteligente</h3>
+          <p class="text-gray-600 font-light leading-relaxed">
+            Decisiones basadas en datos. Aplicación precisa según análisis de suelo. Máximo rendimiento con mínimo insumo. Sostenibilidad económica comprobada.
+          </p>
         </div>
-
-        <div class="minimal-card rounded-xl p-6 hover-lift scale-in" style="animation-delay: 0.2s">
-          <div class="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-            <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
-            </svg>
-          </div>
-          <h3 class="font-semibold mb-2">ROI Garantizado</h3>
-          <p class="text-stone-600 text-sm">Inversión que se paga sola con el aumento de rendimiento</p>
-        </div>
-      </div>
-
-      <!-- CTAs -->
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8 slide-up">
-        <a href="#contacto" class="px-8 py-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-semibold text-lg hover-lift transition-colors">
-          🚀 Solicitar Análisis Gratuito
-        </a>
-        <a href="#aplicacion" class="px-8 py-4 border-2 border-emerald-600 text-emerald-700 hover:bg-emerald-50 rounded-lg font-semibold text-lg hover-lift transition-colors">
-          📋 Ver Cómo Aplicar
-        </a>
-      </div>
-
-      <!-- Urgencia/Escasez -->
-      <div class="bg-white/70 backdrop-blur-sm rounded-xl p-6 border border-emerald-200 scale-in">
-        <div class="flex items-center justify-center gap-3 mb-3">
-          <div class="w-3 h-3 bg-emerald-500 rounded-full animate-pulse"></div>
-          <span class="font-medium text-emerald-800">Consulta Técnica Gratuita</span>
-        </div>
-        <p class="text-stone-600 text-sm">
-          <strong>Análisis personalizado de tu suelo</strong> • Recomendaciones específicas para tu cultivo • 
-          Plan de aplicación adaptado a tu sistema productivo
-        </p>
-        <div class="text-xs text-stone-500 mt-2">
-          ⏱️ Respuesta en menos de 24 horas • 📞 Asesoramiento directo con ingeniero agrónomo
+        
+        <!-- Concepto 3 -->
+        <div class="card-clean animate-in-up stagger-3">
+          <div class="text-5xl mb-6">🌍</div>
+          <h3 class="text-2xl font-bold mb-4">Suelos Expandidos Bien Nutridos</h3>
+          <p class="text-gray-600 font-light leading-relaxed">
+            Estructura mejorada. Infiltración superior. Retención de agua optimizada. Raíces más profundas. Productividad sostenible generación tras generación.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Aplicación -->
-  <section id="aplicacion" class="py-16 md:py-24">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-16 fade-in">
-        <h2 class="text-3xl md:text-4xl font-light mb-4">Cómo Aplicar Sulfato de Calcio</h2>
-        <p class="text-xl text-stone-600 font-light max-w-2xl mx-auto">
-          Dos métodos de aplicación adaptados a diferentes sistemas productivos.
-        </p>
+  <!-- TECNOLOGÍA -->
+  <section id="tecnologia" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-20">
+        <h2 class="text-5xl md:text-6xl font-thin mb-6">Composición Técnica</h2>
+        <p class="text-xl text-gray-600 font-light">Datos analíticos precisos certificados</p>
       </div>
-
-      <div class="grid md:grid-cols-2 gap-12 mb-16">
-        <div class="minimal-card rounded-xl p-8 hover-lift slide-up">
-          <div class="flex items-center gap-4 mb-6">
-            <div class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center">
-              <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 7.172V5L8 4z"></path>
-              </svg>
-            </div>
-            <div>
-              <h3 class="text-2xl font-medium">Fertirriego</h3>
-              <p class="text-stone-600">Aplicación líquida precisa</p>
-            </div>
+      
+      <div class="grid md:grid-cols-2 gap-16 items-center mb-20">
+        <!-- Tabla de Análisis -->
+        <div class="overflow-x-auto">
+          <table class="w-full">
+            <tbody>
+              <tr class="border-b border-gray-200">
+                <td class="py-4 font-semibold text-gray-700">Calcio (CaO)</td>
+                <td class="py-4 text-right"><span class="text-2xl font-bold text-emerald-600">32.7%</span></td>
+              </tr>
+              <tr class="border-b border-gray-200">
+                <td class="py-4 font-semibold text-gray-700">Azufre de Sulfato (SO₄)</td>
+                <td class="py-4 text-right"><span class="text-2xl font-bold text-emerald-600">18.05%</span></td>
+              </tr>
+              <tr class="border-b border-gray-200">
+                <td class="py-4 font-semibold text-gray-700">Agua Combinada en Yeso</td>
+                <td class="py-4 text-right"><span class="text-2xl font-bold text-emerald-600">19.32%</span></td>
+              </tr>
+              <tr class="border-b border-gray-200">
+                <td class="py-4 font-semibold text-gray-700">Azufre Total</td>
+                <td class="py-4 text-right"><span class="text-2xl font-bold text-emerald-600">18.29%</span></td>
+              </tr>
+              <tr>
+                <td class="py-4 font-semibold text-gray-700">Sodio</td>
+                <td class="py-4 text-right"><span class="text-2xl font-bold text-emerald-600">0.10%</span></td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="mt-6 text-sm text-gray-500 font-light">Metodología: AOAC 945.03:2005 | IRAM 22452:2006</p>
+        </div>
+        
+        <!-- Pureza Badge -->
+        <div>
+          <div class="pureza-box mb-8">
+            <p class="text-sm font-semibold text-white/80 uppercase mb-4">Pureza Combinada</p>
+            <div class="pureza-number">98%</div>
+            <p class="text-sm text-white/90 mt-4">Componentes activos garantizados. Trazabilidad desde extracción hasta análisis.</p>
           </div>
+          <a href="/assets/BCRLABSCalidad.pdf" download class="block w-full px-6 py-3 bg-emerald-600 text-white font-bold rounded-lg text-center hover:bg-emerald-700 transition">
+            📄 Descargar Certificado BCRlabs
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-          <div class="space-y-6">
-            <div>
-              <h4 class="font-medium mb-3">Dosis y Aplicación</h4>
-              <div class="space-y-3">
-                <div class="flex justify-between items-center py-2 border-b border-stone-100">
-                  <span class="text-stone-600">Dosis inicial:</span>
-                  <span class="font-medium">200-300 kg/ha</span>
-                </div>
-                <div class="flex justify-between items-center py-2 border-b border-stone-100">
-                  <span class="text-stone-600">Mantenimiento:</span>
-                  <span class="font-medium">100-150 kg/ha/año</span>
-                </div>
-                <div class="flex justify-between items-center py-2 border-b border-stone-100">
-                  <span class="text-stone-600">Frecuencia:</span>
-                  <span class="font-medium">2-4 aplicaciones/ciclo</span>
-                </div>
+  <!-- CERTIFICACIÓN -->
+  <section id="certificacion" class="py-24 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-20">
+        <h2 class="text-5xl md:text-6xl font-thin mb-6">Validación y Certificaciones</h2>
+        <p class="text-xl text-gray-600 font-light">Respaldados por instituciones de investigación y organismos internacionales</p>
+      </div>
+      
+      <!-- Logos -->
+      <div class="mb-20">
+        <p class="text-center text-sm font-semibold text-gray-600 uppercase mb-12">Instituciones Certificadoras y de Investigación</p>
+        <div class="logo-showcase">
+          <div class="logo-item"><img src="/images/logobolsadecomercioderosario.png" alt="BCRlabs"></div>
+          <div class="logo-item"><img src="/images/FSA_RGB.jpg" alt="GMP+"></div>
+          <div class="logo-item"><img src="/images/FRA_RGB.jpg" alt="FOSFA"></div>
+          <div class="logo-item"><img src="/images/logointa.png" alt="INTA"></div>
+          <div class="logo-item"><img src="/images/logoohio.png" alt="Ohio State"></div>
+          <div class="logo-item"><img src="/images/fao_logo.png" alt="FAO"></div>
+          <div class="logo-item"><img src="/images/Senasa_Logo.png" alt="SENASA"></div>
+        </div>
+      </div>
+      
+      <!-- Datos de Certificación -->
+      <div class="bg-white rounded-lg p-12 border border-gray-200">
+        <div class="grid md:grid-cols-4 gap-8 text-center">
+          <div>
+            <p class="text-gray-600 text-sm font-semibold uppercase mb-2">Informe N°</p>
+            <p class="text-2xl font-bold">03832946</p>
+          </div>
+          <div>
+            <p class="text-gray-600 text-sm font-semibold uppercase mb-2">Fecha Emisión</p>
+            <p class="text-2xl font-bold">22/09/2026</p>
+          </div>
+          <div>
+            <p class="text-gray-600 text-sm font-semibold uppercase mb-2">Institución</p>
+            <p class="text-2xl font-bold">BCRlabs</p>
+          </div>
+          <div>
+            <p class="text-gray-600 text-sm font-semibold uppercase mb-2">Director</p>
+            <p class="text-2xl font-bold">Ariel Soso</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTADOS POR CULTIVO -->
+  <section id="resultados" class="py-24 bg-gradient-to-b from-gray-50 to-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-20">
+        <h2 class="text-5xl md:text-6xl font-thin mb-6">Resultados en Cultivos Reales</h2>
+        <p class="text-xl text-gray-600 font-light">Datos de estudios validados por instituciones de investigación</p>
+      </div>
+      
+      <!-- SOJA - INTA -->
+      <div class="mb-16 card-clean animate-in-up stagger-1">
+        <div class="grid md:grid-cols-3 gap-12 items-center">
+          <div>
+            <div class="flex items-center gap-4 mb-6">
+              <img src="/images/logointa.png" alt="INTA" class="h-12">
+              <div>
+                <h3 class="text-2xl font-bold">SOJA</h3>
+                <p class="text-sm text-gray-600">INTA Marcos Juárez (2019-2022)</p>
               </div>
             </div>
-
-            <div>
-              <h4 class="font-medium mb-3">Ventajas</h4>
-              <ul class="space-y-2">
-                <li class="flex items-start gap-2">
-                  <div class="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2"></div>
-                  <span class="text-stone-600 text-sm">Distribución uniforme en toda la zona radicular</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <div class="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2"></div>
-                  <span class="text-stone-600 text-sm">Absorción inmediata y eficiente</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <div class="w-1.5 h-1.5 bg-blue-600 rounded-full mt-2"></div>
-                  <span class="text-stone-600 text-sm">Compatible con otros fertilizantes</span>
-                </li>
-              </ul>
-            </div>
+            <p class="text-gray-600 font-light mb-6">
+              Estudio a largo plazo dirigido por Dr. Hernán Sainz Rozas. Análisis de impacto en rendimiento, estructura de suelo y disponibilidad de nutrientes en cultivos de soja bajo rotación.
+            </p>
+            <p class="text-sm text-gray-500 font-light">Dosis: 500 kg/ha inicial | Zona: Buenos Aires</p>
           </div>
-        </div>
-
-        <div class="minimal-card rounded-xl p-8 hover-lift slide-up" style="animation-delay: 0.2s">
-          <div class="flex items-center gap-4 mb-6">
-            <div class="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center">
-              <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m-9 0h10m-10 0a2 2 0 00-2 2v14a2 2 0 002 2h8a2 2 0 002-2V6a2 2 0 00-2-2H7z"></path>
-              </svg>
-            </div>
-            <div>
-              <h3 class="text-2xl font-medium">Al Voleo</h3>
-              <p class="text-stone-600">Aplicación sólida tradicional</p>
-            </div>
-          </div>
-
-          <div class="space-y-6">
-            <div>
-              <h4 class="font-medium mb-3">Dosis y Aplicación</h4>
-              <div class="space-y-3">
-                <div class="flex justify-between items-center py-2 border-b border-stone-100">
-                  <span class="text-stone-600">Dosis inicial:</span>
-                  <span class="font-medium">500-800 kg/ha</span>
-                </div>
-                <div class="flex justify-between items-center py-2 border-b border-stone-100">
-                  <span class="text-stone-600">Mantenimiento:</span>
-                  <span class="font-medium">300-400 kg/ha/año</span>
-                </div>
-                <div class="flex justify-between items-center py-2 border-b border-stone-100">
-                  <span class="text-stone-600">Momento:</span>
-                  <span class="font-medium">Pre-siembra</span>
-                </div>
+          <div class="col-span-2">
+            <div class="grid grid-cols-3 gap-6">
+              <div class="bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-lg p-8 text-center">
+                <p class="text-gray-600 text-sm font-semibold uppercase mb-3">Rendimiento</p>
+                <p class="text-4xl font-bold text-emerald-600">+18%</p>
+                <p class="text-sm text-gray-600 mt-3 font-light">Aumento promedio en producción</p>
+              </div>
+              <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-8 text-center">
+                <p class="text-gray-600 text-sm font-semibold uppercase mb-3">Sodio Intercambiable</p>
+                <p class="text-4xl font-bold text-blue-600">-35%</p>
+                <p class="text-sm text-gray-600 mt-3 font-light">Reducción en suelo</p>
+              </div>
+              <div class="bg-gradient-to-br from-amber-50 to-amber-100 rounded-lg p-8 text-center">
+                <p class="text-gray-600 text-sm font-semibold uppercase mb-3">Infiltración</p>
+                <p class="text-4xl font-bold text-amber-600">+42%</p>
+                <p class="text-sm text-gray-600 mt-3 font-light">Mejora en retención</p>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
 
-            <div>
-              <h4 class="font-medium mb-3">Ventajas</h4>
-              <ul class="space-y-2">
-                <li class="flex items-start gap-2">
-                  <div class="w-1.5 h-1.5 bg-green-600 rounded-full mt-2"></div>
-                  <span class="text-stone-600 text-sm">Aplicación con maquinaria convencional</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <div class="w-1.5 h-1.5 bg-green-600 rounded-full mt-2"></div>
-                  <span class="text-stone-600 text-sm">Efecto residual prolongado</span>
-                </li>
-                <li class="flex items-start gap-2">
-                  <div class="w-1.5 h-1.5 bg-green-600 rounded-full mt-2"></div>
-                  <span class="text-stone-600 text-sm">Menor costo por hectárea</span>
-                </li>
-              </ul>
+      <!-- MAÍZ - OHIO STATE -->
+      <div class="mb-16 card-clean animate-in-up stagger-2">
+        <div class="grid md:grid-cols-3 gap-12 items-center">
+          <div>
+            <div class="flex items-center gap-4 mb-6">
+              <img src="/images/logoohio.png" alt="Ohio State" class="h-12">
+              <div>
+                <h3 class="text-2xl font-bold">MAÍZ</h3>
+                <p class="text-sm text-gray-600">Ohio State University (2018-2021)</p>
+              </div>
+            </div>
+            <p class="text-gray-600 font-light mb-6">
+              Investigación del Dr. Warren Dick enfocada en mejora de eficiencia hídrica y absorción de calcio. Evaluación en sistemas de maíz continuo y rotaciones con leguminosas.
+            </p>
+            <p class="text-sm text-gray-500 font-light">Dosis: 400 kg/ha | Zona: Corn Belt USA</p>
+          </div>
+          <div class="col-span-2">
+            <div class="grid grid-cols-3 gap-6">
+              <div class="bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-lg p-8 text-center">
+                <p class="text-gray-600 text-sm font-semibold uppercase mb-3">Rendimiento</p>
+                <p class="text-4xl font-bold text-emerald-600">+24%</p>
+                <p class="text-sm text-gray-600 mt-3 font-light">Incremento en granos/m²</p>
+              </div>
+              <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-lg p-8 text-center">
+                <p class="text-gray-600 text-sm font-semibold uppercase mb-3">Absorción Ca</p>
+                <p class="text-4xl font-bold text-purple-600">+58%</p>
+                <p class="text-sm text-gray-600 mt-3 font-light">Disponibilidad radicular</p>
+              </div>
+              <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg p-8 text-center">
+                <p class="text-gray-600 text-sm font-semibold uppercase mb-3">Eficiencia Hídrica</p>
+                <p class="text-4xl font-bold text-blue-600">+31%</p>
+                <p class="text-sm text-gray-600 mt-3 font-light">Uso de agua optimizado</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Momento Óptimo -->
-      <div class="minimal-card rounded-xl p-8 mb-16 slide-up">
-        <h3 class="text-2xl font-medium mb-6 text-center">🎯 Momento Óptimo de Aplicación</h3>
-        <div class="grid md:grid-cols-3 gap-8">
-          <div class="text-center">
-            <div class="w-16 h-16 bg-amber-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-              <svg class="w-8 h-8 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
-              </svg>
+      <!-- TRIGO - ARGENTINA -->
+      <div class="mb-16 card-clean animate-in-up stagger-3">
+        <div class="grid md:grid-cols-3 gap-12 items-center">
+          <div>
+            <div class="flex items-center gap-4 mb-6">
+              <img src="/images/logointa.png" alt="INTA" class="h-12">
+              <div>
+                <h3 class="text-2xl font-bold">TRIGO</h3>
+                <p class="text-sm text-gray-600">Programa Regional Argentina (2020-2024)</p>
+              </div>
             </div>
-            <h4 class="font-semibold mb-2">Pre-Siembra</h4>
-            <p class="text-stone-600 text-sm">30-45 días antes de la siembra para máxima efectividad</p>
+            <p class="text-gray-600 font-light mb-6">
+              Evaluación multisitio en Buenos Aires, Santa Fe y Córdoba. Impacto en llenado de granos, peso de espiga y estabilidad de rendimiento bajo diferentes condiciones hídricas.
+            </p>
+            <p class="text-sm text-gray-500 font-light">Dosis: 600 kg/ha inicial | Zona: Región Pampeana</p>
           </div>
-          
-          <div class="text-center">
-            <div class="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-              <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
-              </svg>
+          <div class="col-span-2">
+            <div class="grid grid-cols-3 gap-6">
+              <div class="bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-lg p-8 text-center">
+                <p class="text-gray-600 text-sm font-semibold uppercase mb-3">Rendimiento</p>
+                <p class="text-4xl font-bold text-emerald-600">+22%</p>
+                <p class="text-sm text-gray-600 mt-3 font-light">Promedio regional</p>
+              </div>
+              <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-lg p-8 text-center">
+                <p class="text-gray-600 text-sm font-semibold uppercase mb-3">Peso/Espiga</p>
+                <p class="text-4xl font-bold text-yellow-600">+28%</p>
+                <p class="text-sm text-gray-600 mt-3 font-light">Llenado de granos</p>
+              </div>
+              <div class="bg-gradient-to-br from-red-50 to-red-100 rounded-lg p-8 text-center">
+                <p class="text-gray-600 text-sm font-semibold uppercase mb-3">Estrés Hídrico</p>
+                <p class="text-4xl font-bold text-red-600">-26%</p>
+                <p class="text-sm text-gray-600 mt-3 font-light">Impacto en años secos</p>
+              </div>
             </div>
-            <h4 class="font-semibold mb-2">Desarrollo Vegetativo</h4>
-            <p class="text-stone-600 text-sm">Durante crecimiento activo para optimizar absorción</p>
-          </div>
-          
-          <div class="text-center">
-            <div class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-              <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"></path>
-              </svg>
-            </div>
-            <h4 class="font-semibold mb-2">Época de Lluvias</h4>
-            <p class="text-stone-600 text-sm">Aprovecha la humedad para mejor disolución e incorporación</p>
           </div>
         </div>
+      </div>
+
+      <!-- SÉSAMO - PARAGUAY -->
+      <div class="mb-16 card-clean animate-in-up stagger-4">
+        <div class="grid md:grid-cols-3 gap-12 items-center">
+          <div>
+            <div class="flex items-center gap-4 mb-6">
+              <div>
+                <h3 class="text-2xl font-bold">🇵🇾 SÉSAMO</h3>
+                <p class="text-sm text-gray-600">CETAPAR Paraguay (2021-2023)</p>
+              </div>
+            </div>
+            <p class="text-gray-600 font-light mb-6">
+              Estudio de CETAPAR en Itapúa. Enfoque en cultivos alternativos de alto valor. Evaluación de productividad y calidad de aceite en condiciones de clima subtropical.
+            </p>
+            <p class="text-sm text-gray-500 font-light">Dosis: 750 kg/ha | Zona: Itapúa, Paraguay</p>
+          </div>
+          <div class="col-span-2">
+            <div class="grid grid-cols-3 gap-6">
+              <div class="bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-lg p-8 text-center">
+                <p class="text-gray-600 text-sm font-semibold uppercase mb-3">Rendimiento</p>
+                <p class="text-4xl font-bold text-emerald-600">+32%</p>
+                <p class="text-sm text-gray-600 mt-3 font-light">Semilla/hectárea</p>
+              </div>
+              <div class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-lg p-8 text-center">
+                <p class="text-gray-600 text-sm font-semibold uppercase mb-3">Contenido Aceite</p>
+                <p class="text-4xl font-bold text-orange-600">+48%</p>
+                <p class="text-sm text-gray-600 mt-3 font-light">Calidad premium</p>
+              </div>
+              <div class="bg-gradient-to-br from-pink-50 to-pink-100 rounded-lg p-8 text-center">
+                <p class="text-gray-600 text-sm font-semibold uppercase mb-3">Estrés Hídrico</p>
+                <p class="text-4xl font-bold text-pink-600">-41%</p>
+                <p class="text-sm text-gray-600 mt-3 font-light">Tolerancia mejorada</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Datos FAO Consolidados -->
+      <div class="bg-gradient-to-r from-emerald-50 to-blue-50 rounded-lg p-12 animate-in-up stagger-5">
+        <h3 class="text-2xl font-bold mb-8 flex items-center justify-center gap-3">
+          <img src="/images/fao_logo.png" alt="FAO" class="h-10">
+          Programa FAO Mercosur - Impacto Regional
+        </h3>
+        
+        <!-- Infografía FAO -->
+        <div class="mb-12">
+          <img src="/images/South America agricultural infographic.png" alt="Mapa FAO Mercosur" class="w-full max-w-2xl mx-auto rounded-lg shadow-lg">
+        </div>
+        
+        <!-- Datos Consolidados -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div>
+            <p class="text-gray-600 text-sm font-semibold uppercase mb-3">Hectáreas Tratadas</p>
+            <p class="text-3xl font-bold text-emerald-600">1.05M</p>
+          </div>
+          <div>
+            <p class="text-gray-600 text-sm font-semibold uppercase mb-3">Productores</p>
+            <p class="text-3xl font-bold text-blue-600">31,550</p>
+          </div>
+          <div>
+            <p class="text-gray-600 text-sm font-semibold uppercase mb-3">Rendimiento Promedio</p>
+            <p class="text-3xl font-bold text-emerald-600">+29%</p>
+          </div>
+          <div>
+            <p class="text-gray-600 text-sm font-semibold uppercase mb-3">ROI Promedio</p>
+            <p class="text-3xl font-bold text-amber-600">4:1</p>
+          </div>
+        </div>
+        
+        <p class="text-sm text-gray-600 mt-8 font-light text-center">
+          Datos multisitio: Argentina, Brasil, Paraguay, Uruguay | Período 2015-2024
+        </p>
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section id="faq" class="py-16 md:py-24 bg-stone-25">
-    <div class="max-w-4xl mx-auto px-6">
-      <div class="text-center mb-16 fade-in">
-        <h2 class="text-3xl md:text-4xl font-light mb-4">Preguntas Frecuentes</h2>
-        <p class="text-xl text-stone-600 font-light">
-          Respuestas a las consultas más comunes sobre yeso agrícola
-        </p>
+  <!-- APLICACIÓN -->
+  <section id="aplicacion" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-20">
+        <h2 class="text-5xl md:text-6xl font-thin mb-6">Aplicación Según Análisis</h2>
+        <p class="text-xl text-gray-600 font-light">Dosis recomendadas basadas en tipo de suelo y cultivo</p>
       </div>
-
-      <div class="space-y-6">
-        <div class="minimal-card rounded-xl p-6 hover-lift slide-up">
-          <button class="w-full text-left flex items-center justify-between" onclick="toggleFAQ(this)">
-            <h3 class="font-semibold text-lg">¿Qué elegir para su campo: yeso agrícola o cal agrícola?</h3>
-            <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </button>
-          <div class="mt-4 text-stone-600 hidden">
-            <p><strong>Yeso agrícola (sulfato de calcio):</strong> recomendado cuando el suelo tiene problemas de sodicidad, salinidad, encharcamiento o estructura compacta. Desplaza sodio, mejora la floculación de arcillas, aumenta la porosidad y el drenaje sin tocar el pH. Ideal para suelos neutros o alcalinos que requieren calcio y azufre.</p>
-            <p class="mt-2"><strong>Cal agrícola:</strong> recomendado cuando el suelo es ácido y necesita elevar pH para mejorar disponibilidad de nutrientes. No es la primera opción para descompactar suelos sódicos; en suelos con problemas estructurales conviene combinarla con manejo físico y materia orgánica.</p>
-          </div>
-        </div>
-
-        <div class="minimal-card rounded-xl p-6 hover-lift slide-up">
-          <button class="w-full text-left flex items-center justify-between" onclick="toggleFAQ(this)">
-            <h3 class="font-semibold text-lg">¿Cuánto tiempo tardan en verse los resultados?</h3>
-            <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </button>
-          <div class="mt-4 text-stone-600 hidden">
-            <p>Los resultados varían según el método de aplicación:</p>
-            <ul class="mt-2 space-y-1">
-              <li>• <strong>Fertirriego:</strong> mejoras visibles en 2-4 semanas</li>
-              <li>• <strong>Aplicación al voleo:</strong> resultados en 6-8 semanas</li>
-              <li>• <strong>Máximo beneficio:</strong> se alcanza en el segundo ciclo de cultivo</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="minimal-card rounded-xl p-6 hover-lift slide-up">
-          <button class="w-full text-left flex items-center justify-between" onclick="toggleFAQ(this)">
-            <h3 class="font-semibold text-lg">¿Se puede aplicar junto con otros fertilizantes?</h3>
-            <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </button>
-          <div class="mt-4 text-stone-600 hidden">
-            <p>Sí, el sulfato de calcio es altamente compatible con:</p>
-            <ul class="mt-2 space-y-1">
-              <li>• Fertilizantes NPK</li>
-              <li>• Micronutrientes</li>
-              <li>• Materia orgánica</li>
-              <li>• Productos fitosanitarios</li>
-            </ul>
-            <p class="mt-2"><strong>Precauciones:</strong> separar aplicación con fertilizantes con fósforo y productos alcalinos fuertes.</p>
-          </div>
-        </div>
-
-        <div class="minimal-card rounded-xl p-6 hover-lift slide-up">
-          <button class="w-full text-left flex items-center justify-between" onclick="toggleFAQ(this)">
-            <h3 class="font-semibold text-lg">¿Qué dosis necesito para mi cultivo?</h3>
-            <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </button>
-          <div class="mt-4 text-stone-600 hidden">
-            <p>La dosis depende del cultivo y método:</p>
-            <ul class="mt-2 space-y-1">
-              <li>• <strong>Cereales:</strong> 500-800 kg/ha al voleo o 200-300 kg/ha fertirriego</li>
-              <li>• <strong>Hortalizas:</strong> 300-500 kg/ha al voleo o 150-250 kg/ha fertirriego</li>
-              <li>• <strong>Frutales:</strong> 400-600 kg/ha al voleo o 200-300 kg/ha fertirriego</li>
-            </ul>
-            <p class="mt-2">Recomendamos análisis de suelo para dosificación precisa.</p>
-          </div>
-        </div>
-
-        <div class="minimal-card rounded-xl p-6 hover-lift slide-up">
-          <button class="w-full text-left flex items-center justify-between" onclick="toggleFAQ(this)">
-            <h3 class="font-semibold text-lg">¿Es seguro para el medio ambiente?</h3>
-            <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </button>
-          <div class="mt-4 text-stone-600 hidden">
-            <p>Absolutamente. El sulfato de calcio es:</p>
-            <ul class="mt-2 space-y-1">
-              <li>• 100% natural</li>
-              <li>• No tóxico para humanos, animales y vida acuática</li>
-              <li>• Biodegradable</li>
-              <li>• Permitido en agricultura orgánica certificada</li>
-            </ul>
-            <p class="mt-2">Es uno de los insumos agrícolas más seguros disponibles.</p>
-          </div>
-        </div>
-
-        <div class="minimal-card rounded-xl p-6 hover-lift slide-up">
-          <button class="w-full text-left flex items-center justify-between" onclick="toggleFAQ(this)">
-            <h3 class="font-semibold text-lg">¿Cuál es el retorno de inversión?</h3>
-            <svg class="w-5 h-5 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </button>
-          <div class="mt-4 text-stone-600 hidden">
-            <p>El ROI típico es de 3:1 a 5:1. Por cada $1 invertido se recuperan $3-5 en:</p>
-            <ul class="mt-2 space-y-1">
-              <li>• Mayor producción (18-32% aumento rendimiento)</li>
-              <li>• Reducción de fertilizantes (10-20% ahorro)</li>
-              <li>• Mejor calidad de frutos (+5-15% precio)</li>
-              <li>• Payback en 1-2 ciclos</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contacto -->
-  <section id="contacto" class="py-16 md:py-24">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-16 fade-in">
-        <h2 class="text-3xl md:text-4xl font-light mb-4">Contacto</h2>
-        <p class="text-xl text-stone-600 font-light">
-          Obtén asesoramiento personalizado para tu sistema productivo
-        </p>
-      </div>
-
+      
       <div class="grid md:grid-cols-2 gap-12">
-        <!-- Formulario -->
-        <div class="minimal-card rounded-xl p-8 slide-up">
-          <h3 class="text-2xl font-medium mb-6">Solicitar Información</h3>
-          <form class="space-y-6" onsubmit="handleSubmit(event)">
-            <div class="grid md:grid-cols-2 gap-4">
-              <div>
-                <label class="block text-sm font-medium text-stone-700 mb-2">Nombre *</label>
-                <input type="text" required class="w-full px-4 py-3 border border-stone-200 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition">
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-stone-700 mb-2">Apellido *</label>
-                <input type="text" required class="w-full px-4 py-3 border border-stone-200 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition">
-              </div>
-            </div>
-            
+        <!-- Fertirriego -->
+        <div class="card-clean">
+          <h3 class="text-3xl font-bold mb-8 flex items-center gap-3">
+            <span>💧</span> Fertirriego
+          </h3>
+          <div class="space-y-8">
             <div>
-              <label class="block text-sm font-medium text-stone-700 mb-2">Email *</label>
-              <input type="email" required class="w-full px-4 py-3 border border-stone-200 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition">
+              <p class="text-gray-600 text-sm font-semibold uppercase mb-2">Dosis Inicial</p>
+              <p class="text-3xl font-bold text-emerald-600">300 - 500 kg/ha</p>
+              <p class="text-gray-600 text-sm mt-2 font-light">Aplicado en 2-3 dosis durante ciclo vegetativo</p>
             </div>
-            
             <div>
-              <label class="block text-sm font-medium text-stone-700 mb-2">Teléfono</label>
-              <input type="tel" class="w-full px-4 py-3 border border-stone-200 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition">
-            </div>
-            
-            <div>
-              <label class="block text-sm font-medium text-stone-700 mb-2">Cultivo Principal</label>
-              <select class="w-full px-4 py-3 border border-stone-200 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition">
-                <option value="">Seleccionar cultivo</option>
-                <option value="soja">Soja</option>
-                <option value="maiz">Maíz</option>
-                <option value="trigo">Trigo</option>
-                <option value="hortalizas">Hortalizas</option>
-                <option value="frutales">Frutales</option>
-                <option value="otros">Otros</option>
-              </select>
-            </div>
-            
-            <div>
-              <label class="block text-sm font-medium text-stone-700 mb-2">Hectáreas</label>
-              <input type="number" placeholder="Superficie a tratar" class="w-full px-4 py-3 border border-stone-200 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition">
-            </div>
-            
-            <div>
-              <label class="block text-sm font-medium text-stone-700 mb-2">Consulta</label>
-              <textarea rows="4" placeholder="Describe tu situación actual del suelo, problemas específicos o consultas..." class="w-full px-4 py-3 border border-stone-200 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 transition resize-none"></textarea>
-            </div>
-            
-            <button type="submit" class="w-full px-8 py-4 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg font-semibold transition-colors hover-lift">
-              📧 Enviar Consulta
-            </button>
-            
-            <p class="text-xs text-stone-500 text-center">
-              * Campos obligatorios. Respuesta garantizada en menos de 24 horas.
-            </p>
-          </form>
-        </div>
-
-        <!-- Información de Contacto -->
-        <div class="space-y-8 slide-up" style="animation-delay: 0.2s">
-          <!-- Datos de Sulfamix -->
-          <div class="minimal-card rounded-xl p-8">
-            <h3 class="text-2xl font-medium mb-6">Sulfamix</h3>
-            <div class="space-y-4">
-              <div class="flex items-start gap-4">
-                <div class="w-10 h-10 bg-emerald-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                  </svg>
-                </div>
-                <div>
-                  <div class="font-medium">Cantera Sulfamix</div>
-                  <div class="text-stone-600 text-sm">Villa Guasayán, Santiago del Estero</div>
-                  <div class="text-stone-600 text-sm">Cobertura: Argentina, Paraguay, Uruguay, Sur de Brasil</div>
-                </div>
-              </div>
-              
-              <div class="flex items-start gap-4">
-                <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
-                  </svg>
-                </div>
-                <div>
-                  <div class="font-medium">Teléfono</div>
-                  <div class="text-stone-600 text-sm">+54 341 364-7230</div>
-                  <div class="text-stone-600 text-sm">Sucursal Rosario: Arijón 3645 C.P 2000</div>
-                </div>
-              </div>
-              
-              <div class="flex items-start gap-4">
-                <div class="w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <svg class="w-5 h-5 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                  </svg>
-                </div>
-                <div>
-                  <div class="font-medium">Email</div>
-                  <div class="text-stone-600 text-sm">info@sulfamix.com.ar</div>
-                  <div class="text-stone-600 text-sm">Rosario, Santa Fe</div>
-                </div>
-              </div>
+              <p class="text-gray-600 text-sm font-semibold uppercase mb-2">Mantenimiento</p>
+              <p class="text-3xl font-bold text-emerald-600">150 - 250 kg/ha/año</p>
+              <p class="text-gray-600 text-sm mt-2 font-light">Según análisis de suelo anual</p>
             </div>
           </div>
-
-          <!-- Botón WhatsApp -->
-          <div class="minimal-card rounded-xl p-8 bg-gradient-to-r from-green-50 to-emerald-50 border-green-200">
-            <h4 class="font-semibold text-green-800 mb-4">Consulta Inmediata por WhatsApp</h4>
-            <p class="text-green-700 text-sm mb-6">
-              Habla directamente con nuestro ingeniero agrónomo. Respuesta inmediata para consultas urgentes.
-            </p>
-            <a href="https://wa.link/n73e02" 
-               target="_blank" rel="noopener noreferrer"
-               class="inline-flex items-center gap-3 px-6 py-3 bg-green-600 hover:bg-green-700 text-white rounded-lg font-semibold transition-colors hover-lift">
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.516"/>
-              </svg>
-              Consultar por WhatsApp
-            </a>
-          </div>
-
-          <!-- Certificaciones -->
-          <div class="minimal-card rounded-xl p-8">
-            <h4 class="font-semibold mb-4">Certificaciones y Avales</h4>
-            <div class="grid grid-cols-2 gap-4">
-              <div class="text-center">
-                <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-2">
-                  <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                  </svg>
-                </div>
-                <div class="text-xs font-medium">SENASA</div>
-                <div class="text-xs text-stone-600">Registrado</div>
-              </div>
-              
-              <div class="text-center">
-                <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-2">
-                  <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
-                  </svg>
-                </div>
-                <div class="text-xs font-medium">OMRI</div>
-                <div class="text-xs text-stone-600">Orgánico</div>
-              </div>
-              
-              <div class="text-center">
-                <div class="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mx-auto mb-2">
-                  <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                  </svg>
-                </div>
-                <div class="text-xs font-medium">ISO 9001</div>
-                <div class="text-xs text-stone-600">Calidad</div>
-              </div>
-              
-              <div class="text-center">
-                <div class="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center mx-auto mb-2">
-                  <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                  </svg>
-                </div>
-                <div class="text-xs font-medium">INTA</div>
-                <div class="text-xs text-stone-600">Avalado</div>
-              </div>
-            </div>
+          <div class="mt-8 pt-8 border-t border-gray-200">
+            <p class="text-sm font-semibold text-gray-700 mb-3">✓ Ventajas</p>
+            <ul class="text-sm text-gray-600 font-light space-y-2">
+              <li>• Absorción inmediata y eficiente</li>
+              <li>• Distribución uniforme</li>
+              <li>• Compatible con otros fertilizantes</li>
+            </ul>
           </div>
         </div>
+        
+        <!-- Voleo -->
+        <div class="card-clean">
+          <h3 class="text-3xl font-bold mb-8 flex items-center gap-3">
+            <span>📦</span> Voleo
+          </h3>
+          <div class="space-y-8">
+            <div>
+              <p class="text-gray-600 text-sm font-semibold uppercase mb-2">Dosis Inicial</p>
+              <p class="text-3xl font-bold text-emerald-600">800 - 1,100 kg/ha</p>
+              <p class="text-gray-600 text-sm mt-2 font-light">Pre-siembra, 30-45 días antes</p>
+            </div>
+            <div>
+              <p class="text-gray-600 text-sm font-semibold uppercase mb-2">Mantenimiento</p>
+              <p class="text-3xl font-bold text-emerald-600">400 - 600 kg/ha/año</p>
+              <p class="text-gray-600 text-sm mt-2 font-light">Residualidad 2-3 años</p>
+            </div>
+          </div>
+          <div class="mt-8 pt-8 border-t border-gray-200">
+            <p class="text-sm font-semibold text-gray-700 mb-3">✓ Ventajas</p>
+            <ul class="text-sm text-gray-600 font-light space-y-2">
+              <li>• Maquinaria convencional</li>
+              <li>• Menor costo operativo</li>
+              <li>• Efecto residual prolongado</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="py-24 bg-gradient-to-br from-emerald-50 via-amber-50 to-white">
+    <div class="max-w-5xl mx-auto px-6 text-center">
+      <h2 class="text-5xl md:text-6xl font-thin mb-8">¿Listo para Agricultura Inteligente?</h2>
+      <p class="text-xl text-gray-600 font-light mb-12 max-w-2xl mx-auto">
+        Consulta con nuestro equipo técnico. Análisis de suelo personalizado. Dosis según tu sistema productivo.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-6 justify-center">
+        <a href="https://wa.link/n73e02" target="_blank" class="px-8 py-4 bg-emerald-600 text-white font-bold rounded-lg hover:bg-emerald-700 transition shadow-lg">
+          💬 Contactar por WhatsApp
+        </a>
+        <a href="tel:+543413647230" class="px-8 py-4 border-2 border-emerald-600 text-emerald-600 font-bold rounded-lg hover:bg-emerald-50 transition">
+          📞 +54 341 364-7230
+        </a>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="py-12 bg-stone-900 text-stone-300">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="grid md:grid-cols-4 gap-8 mb-8">
+  <footer class="bg-gray-900 text-gray-300 py-16">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-3 gap-12 mb-12">
         <div>
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-8 h-8 bg-emerald-600 rounded-full flex items-center justify-center">
-              <span class="text-white font-bold text-sm">S</span>
-            </div>
-            <span class="font-semibold text-xl text-white">Sulfamix</span>
-          </div>
-          <p class="text-sm leading-relaxed">
-            Yeso agrícola premium para agricultura sostenible. Transformamos suelos degradados en ecosistemas productivos.
-          </p>
+          <h3 class="text-white font-bold mb-4">SULFAMIX</h3>
+          <p class="text-sm font-light">Yeso agrícola natural para agricultura inteligente. Directo de cantera.</p>
         </div>
-        
         <div>
-          <h4 class="font-semibold text-white mb-4">Productos</h4>
-          <ul class="space-y-2 text-sm">
-            <li><a href="#" class="hover:text-emerald-400 transition">Yeso Agrícola Granulado</a></li>
-            <li><a href="#" class="hover:text-emerald-400 transition">Yeso Agrícola en Polvo</a></li>
-            <li><a href="#" class="hover:text-emerald-400 transition">Sulfato de Calcio Premium</a></li>
-            <li><a href="#" class="hover:text-emerald-400 transition">Mezclas Especiales</a></li>
-          </ul>
+          <h3 class="text-white font-bold mb-4">Ubicaciones</h3>
+          <p class="text-sm font-light">Cantera: Villa Guasayán, Santiago del Estero<br>Sucursal: Arijón 3645, Rosario</p>
         </div>
-        
         <div>
-          <h4 class="font-semibold text-white mb-4">Recursos</h4>
-          <ul class="space-y-2 text-sm">
-            <li><a href="#" class="hover:text-emerald-400 transition">Guías de Aplicación</a></li>
-            <li><a href="#" class="hover:text-emerald-400 transition">Estudios Científicos</a></li>
-            <li><a href="#" class="hover:text-emerald-400 transition">Casos de Éxito</a></li>
-            <li><a href="#" class="hover:text-emerald-400 transition">Calculadora de Dosis</a></li>
-          </ul>
-        </div>
-        
-        <div>
-          <h4 class="font-semibold text-white mb-4">Contacto</h4>
-          <ul class="space-y-2 text-sm">
-            <li>+54 341 364-7230</li>
-            <li>info@sulfamix.com.ar</li>
-            <li>Villa Guasayán, Santiago del Estero</li>
-            <li>Sucursal Rosario, Santa Fe</li>
-          </ul>
+          <h3 class="text-white font-bold mb-4">Contacto</h3>
+          <p class="text-sm font-light">📞 +54 341 364-7230<br>📧 info@sulfamix.com.ar</p>
         </div>
       </div>
-      
-      <div class="border-t border-stone-700 pt-8 flex flex-col md:flex-row items-center justify-between">
-        <div class="text-sm">
-          © 2024 Sulfamix. Todos los derechos reservados.
-        </div>
-        <div class="flex items-center gap-6 mt-4 md:mt-0">
-          <a href="#" class="text-sm hover:text-emerald-400 transition">Política de Privacidad</a>
-          <a href="#" class="text-sm hover:text-emerald-400 transition">Términos de Uso</a>
-          <a href="#" class="text-sm hover:text-emerald-400 transition">Cookies</a>
-        </div>
+      <div class="border-t border-gray-700 pt-8 text-center text-sm">
+        <p>© 2026 Sulfamix S.R.L. | Certificado BCRlabs N° 03832946</p>
       </div>
     </div>
   </footer>
 
-  <!-- WhatsApp Float Button -->
-  <a href="https://wa.link/n73e02" 
-     target="_blank" rel="noopener noreferrer"
-     class="whatsapp-float">
-    <div class="w-14 h-14 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl transition-all">
-      <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.516"/>
-      </svg>
-    </div>
+  <!-- WhatsApp Flotante -->
+  <a href="https://wa.link/n73e02" target="_blank" rel="noopener noreferrer" class="whatsapp-float" title="Contactar por WhatsApp">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-9.746 9.798c0 2.634.738 5.206 2.114 7.422L2 22.239l8.025-2.087a9.857 9.857 0 004.743 1.201h.004c5.44 0 9.902-4.413 9.914-9.798.008-2.628-.754-5.195-2.191-7.372C19.736 5.033 16.318 2.34 12.47 2.34z"/>
+    </svg>
   </a>
 
-  <script>
-    function toggleFAQ(button) {
-      const content = button.nextElementSibling;
-      const icon = button.querySelector('svg');
-      
-      if (content.classList.contains('hidden')) {
-        content.classList.remove('hidden');
-        icon.style.transform = 'rotate(180deg)';
-      } else {
-        content.classList.add('hidden');
-        icon.style.transform = 'rotate(0deg)';
-      }
-    }
-
-    function handleSubmit(event) {
-      event.preventDefault();
-      
-      // Simular envío del formulario
-      const button = event.target.querySelector('button[type="submit"]');
-      const originalText = button.innerHTML;
-      
-      button.innerHTML = '⏳ Enviando...';
-      button.disabled = true;
-      
-      setTimeout(() => {
-        button.innerHTML = '✅ Mensaje Enviado';
-        button.classList.remove('bg-emerald-600', 'hover:bg-emerald-700');
-        button.classList.add('bg-green-600');
-        
-        setTimeout(() => {
-          button.innerHTML = originalText;
-          button.disabled = false;
-          button.classList.remove('bg-green-600');
-          button.classList.add('bg-emerald-600', 'hover:bg-emerald-700');
-          event.target.reset();
-        }, 2000);
-      }, 1500);
-    }
-
-    // Funciones de descarga de PDFs REALES
-    function generateTechnicalPDF(type) {
-      const button = event.target;
-      const originalText = button.innerHTML;
-      
-      button.innerHTML = '⏳ Descargando PDF...';
-      button.disabled = true;
-      
-      let filename, pdfUrl;
-      
-      switch(type) {
-        case 'aplicacion':
-          filename = 'Sulfamix_Guia_Aplicacion_2024.pdf';
-          pdfUrl = '/pdfs/guia-aplicacion.pdf';
-          break;
-        case 'laboratorio':
-          filename = 'Sulfamix_Protocolos_Laboratorio_2024.pdf';
-          pdfUrl = '/pdfs/protocolos-laboratorio.pdf';
-          break;
-        case 'impacto':
-          filename = 'Sulfamix_Estudios_Impacto_2024.pdf';
-          pdfUrl = '/pdfs/estudios-impacto.pdf';
-          break;
-      }
-      
-      // Descargar PDF real
-      downloadRealPDF(pdfUrl, filename)
-        .then(() => {
-          button.innerHTML = '✅ Descargado';
-          setTimeout(() => {
-            button.innerHTML = originalText;
-            button.disabled = false;
-          }, 2000);
-        })
-        .catch(() => {
-          button.innerHTML = '❌ Error';
-          setTimeout(() => {
-            button.innerHTML = originalText;
-            button.disabled = false;
-          }, 2000);
-        });
-    }
-
-    function generateCalculatorPDF() {
-      const button = event.target;
-      const originalText = button.innerHTML;
-      
-      button.innerHTML = '⏳ Descargando herramienta...';
-      button.disabled = true;
-      
-      const filename = 'Sulfamix_Calculadora_Dosis_2024.zip';
-      const pdfUrl = '/pdfs/calculadora-dosis.zip';
-      
-      downloadRealPDF(pdfUrl, filename)
-        .then(() => {
-          button.innerHTML = '✅ Descargado';
-          setTimeout(() => {
-            button.innerHTML = originalText;
-            button.disabled = false;
-          }, 2000);
-        })
-        .catch(() => {
-          button.innerHTML = '❌ Error';
-          setTimeout(() => {
-            button.innerHTML = originalText;
-            button.disabled = false;
-          }, 2000);
-        });
-    }
-
-    function generateCropPDF() {
-      const button = event.target;
-      const originalText = button.innerHTML;
-      
-      button.innerHTML = '⏳ Descargando fichas...';
-      button.disabled = true;
-      
-      const filename = 'Sulfamix_Fichas_Cultivos_2024.pdf';
-      const pdfUrl = '/pdfs/fichas-cultivos.pdf';
-      
-      downloadRealPDF(pdfUrl, filename)
-        .then(() => {
-          button.innerHTML = '✅ Descargado';
-          setTimeout(() => {
-            button.innerHTML = originalText;
-            button.disabled = false;
-          }, 2000);
-        })
-        .catch(() => {
-          button.innerHTML = '❌ Error';
-          setTimeout(() => {
-            button.innerHTML = originalText;
-            button.disabled = false;
-          }, 2000);
-        });
-    }
-
-    function generateCertificationPDF() {
-      const button = event.target;
-      const originalText = button.innerHTML;
-      
-      button.innerHTML = '⏳ Descargando certificaciones...';
-      button.disabled = true;
-      
-      const filename = 'Sulfamix_Certificaciones_2024.pdf';
-      const pdfUrl = '/pdfs/certificaciones.pdf';
-      
-      downloadRealPDF(pdfUrl, filename)
-        .then(() => {
-          button.innerHTML = '✅ Descargado';
-          setTimeout(() => {
-            button.innerHTML = originalText;
-            button.disabled = false;
-          }, 2000);
-        })
-        .catch(() => {
-          button.innerHTML = '❌ Error';
-          setTimeout(() => {
-            button.innerHTML = originalText;
-            button.disabled = false;
-          }, 2000);
-        });
-    }
-
-    function generateCompletePDF() {
-      const button = event.target;
-      const originalText = button.innerHTML;
-      
-      button.innerHTML = '⏳ Descargando biblioteca completa...';
-      button.disabled = true;
-      
-      const filename = 'Sulfamix_Biblioteca_Tecnica_Completa_2024.zip';
-      const pdfUrl = '/pdfs/biblioteca-completa.zip';
-      
-      downloadRealPDF(pdfUrl, filename)
-        .then(() => {
-          button.innerHTML = '✅ Biblioteca Descargada';
-          setTimeout(() => {
-            button.innerHTML = originalText;
-            button.disabled = false;
-          }, 3000);
-        })
-        .catch(() => {
-          button.innerHTML = '❌ Error';
-          setTimeout(() => {
-            button.innerHTML = originalText;
-            button.disabled = false;
-          }, 3000);
-        });
-    }
-
-    // Funciones de generación de contenido PDF
-    function generateApplicationGuide() {
-      return `%PDF-1.4
-1 0 obj
-<<
-/Type /Catalog
-/Pages 2 0 R
->>
-endobj
-
-2 0 obj
-<<
-/Type /Pages
-/Kids [3 0 R]
-/Count 1
->>
-endobj
-
-3 0 obj
-<<
-/Type /Page
-/Parent 2 0 R
-/MediaBox [0 0 612 792]
-/Contents 4 0 R
-/Resources <<
-  /Font <<
-    /F1 5 0 R
-  >>
->>
->>
-endobj
-
-4 0 obj
-<<
-/Length 500
->>
-stream
-BT
-/F1 24 Tf
-50 750 Td
-(SULFAMIX - GUÍA TÉCNICA DE APLICACIÓN) Tj
-0 -50 Td
-/F1 16 Tf
-(Yeso Agrícola - Sulfato de Calcio) Tj
-0 -30 Td
-/F1 12 Tf
-(Versión 2024 - Para Ingenieros Agrónomos) Tj
-0 -50 Td
-(CONTENIDO:) Tj
-0 -20 Td
-(• Dosificaciones por cultivo y método) Tj
-0 -15 Td
-(• Protocolos de aplicación) Tj
-0 -15 Td
-(• Compatibilidades con fertilizantes) Tj
-0 -15 Td
-(• Monitoreo post-aplicación) Tj
-0 -15 Td
-(• Casos de éxito documentados) Tj
-0 -30 Td
-(Documento técnico de 45 páginas con tablas,) Tj
-0 -15 Td
-(gráficos y protocolos detallados.) Tj
-ET
-endstream
-endobj
-
-5 0 obj
-<<
-/Type /Font
-/Subtype /Type1
-/BaseFont /Helvetica
->>
-endobj
-
-xref
-0 6
-0000000000 65535 f 
-0000000009 00000 n 
-0000000058 00000 n 
-0000000115 00000 n 
-0000000274 00000 n 
-0000000826 00000 n 
-trailer
-<<
-/Size 6
-/Root 1 0 R
->>
-startxref
-885
-%%EOF`;
-    }
-
-    function generateLabProtocols() {
-      return `%PDF-1.4
-1 0 obj
-<<
-/Type /Catalog
-/Pages 2 0 R
->>
-endobj
-
-2 0 obj
-<<
-/Type /Pages
-/Kids [3 0 R]
-/Count 1
->>
-endobj
-
-3 0 obj
-<<
-/Type /Page
-/Parent 2 0 R
-/MediaBox [0 0 612 792]
-/Contents 4 0 R
-/Resources <<
-  /Font <<
-    /F1 5 0 R
-  >>
->>
->>
-endobj
-
-4 0 obj
-<<
-/Length 520
->>
-stream
-BT
-/F1 24 Tf
-50 750 Td
-(PROTOCOLOS DE LABORATORIO) Tj
-0 -30 Td
-/F1 16 Tf
-(Análisis de Suelos para Yeso Agrícola) Tj
-0 -30 Td
-/F1 12 Tf
-(Metodologías INTA, FAO, USDA - 2024) Tj
-0 -50 Td
-(CONTENIDO TÉCNICO:) Tj
-0 -20 Td
-(• Determinación de sodio intercambiable) Tj
-0 -15 Td
-(• Análisis de conductividad eléctrica) Tj
-0 -15 Td
-(• Evaluación de estructura del suelo) Tj
-0 -15 Td
-(• Protocolos de muestreo) Tj
-0 -15 Td
-(• Interpretación de resultados) Tj
-0 -15 Td
-(• Cálculo de necesidades de yeso) Tj
-0 -30 Td
-(32 páginas con metodologías estandarizadas) Tj
-0 -15 Td
-(y protocolos paso a paso.) Tj
-ET
-endstream
-endobj
-
-5 0 obj
-<<
-/Type /Font
-/Subtype /Type1
-/BaseFont /Helvetica
->>
-endobj
-
-xref
-0 6
-0000000000 65535 f 
-0000000009 00000 n 
-0000000058 00000 n 
-0000000115 00000 n 
-0000000274 00000 n 
-0000000846 00000 n 
-trailer
-<<
-/Size 6
-/Root 1 0 R
->>
-startxref
-905
-%%EOF`;
-    }
-
-    function generateImpactStudies() {
-      return `%PDF-1.4
-1 0 obj
-<<
-/Type /Catalog
-/Pages 2 0 R
->>
-endobj
-
-2 0 obj
-<<
-/Type /Pages
-/Kids [3 0 R]
-/Count 1
->>
-endobj
-
-3 0 obj
-<<
-/Type /Page
-/Parent 2 0 R
-/MediaBox [0 0 612 792]
-/Contents 4 0 R
-/Resources <<
-  /Font <<
-    /F1 5 0 R
-  >>
->>
->>
-endobj
-
-4 0 obj
-<<
-/Length 580
->>
-stream
-BT
-/F1 24 Tf
-50 750 Td
-(ESTUDIOS DE IMPACTO) Tj
-0 -30 Td
-/F1 16 Tf
-(Investigación Científica - Yeso Agrícola) Tj
-0 -30 Td
-/F1 12 Tf
-(Compilación 2024 - 60+ Estudios) Tj
-0 -50 Td
-(INVESTIGACIONES INCLUIDAS:) Tj
-0 -20 Td
-(• INTA Argentina - 15 estudios) Tj
-0 -15 Td
-(• Ohio State University - 25 publicaciones) Tj
-0 -15 Td
-(• CETAPAR Paraguay - 8 investigaciones) Tj
-0 -15 Td
-(• Programa FAO Mercosur) Tj
-0 -15 Td
-(• Análisis estadísticos de rendimiento) Tj
-0 -15 Td
-(• Evaluación económica (ROI)) Tj
-0 -15 Td
-(• Análisis de ciclo de vida (LCA)) Tj
-0 -15 Td
-(• Impacto en sostenibilidad) Tj
-0 -30 Td
-(68 páginas con datos científicos,) Tj
-0 -15 Td
-(gráficos estadísticos y conclusiones.) Tj
-ET
-endstream
-endobj
-
-5 0 obj
-<<
-/Type /Font
-/Subtype /Type1
-/BaseFont /Helvetica
->>
-endobj
-
-xref
-0 6
-0000000000 65535 f 
-0000000009 00000 n 
-0000000058 00000 n 
-0000000115 00000 n 
-0000000274 00000 n 
-0000000906 00000 n 
-trailer
-<<
-/Size 6
-/Root 1 0 R
->>
-startxref
-965
-%%EOF`;
-    }
-
-    function generateCropSheets() {
-      return `%PDF-1.4
-1 0 obj
-<<
-/Type /Catalog
-/Pages 2 0 R
->>
-endobj
-
-2 0 obj
-<<
-/Type /Pages
-/Kids [3 0 R]
-/Count 1
->>
-endobj
-
-3 0 obj
-<<
-/Type /Page
-/Parent 2 0 R
-/MediaBox [0 0 612 792]
-/Contents 4 0 R
-/Resources <<
-  /Font <<
-    /F1 5 0 R
-  >>
->>
->>
-endobj
-
-4 0 obj
-<<
-/Length 550
->>
-stream
-BT
-/F1 24 Tf
-50 750 Td
-(FICHAS TÉCNICAS POR CULTIVO) Tj
-0 -30 Td
-/F1 16 Tf
-(Aplicación Específica de Yeso Agrícola) Tj
-0 -30 Td
-/F1 12 Tf
-(15 Cultivos - Recomendaciones 2024) Tj
-0 -50 Td
-(CULTIVOS INCLUIDOS:) Tj
-0 -20 Td
-(• Soja - Dosis, timing, resultados) Tj
-0 -15 Td
-(• Maíz - Protocolos específicos) Tj
-0 -15 Td
-(• Trigo - Aplicación y monitoreo) Tj
-0 -15 Td
-(• Hortalizas - Tomate, pimiento, etc.) Tj
-0 -15 Td
-(• Frutales - Cítricos, vid, etc.) Tj
-0 -15 Td
-(• Pasturas - Alfalfa, gramíneas) Tj
-0 -15 Td
-(• Cultivos industriales) Tj
-0 -30 Td
-(Cada ficha incluye: cronograma de) Tj
-0 -15 Td
-(aplicación, fotos y casos de éxito.) Tj
-ET
-endstream
-endobj
-
-5 0 obj
-<<
-/Type /Font
-/Subtype /Type1
-/BaseFont /Helvetica
->>
-endobj
-
-xref
-0 6
-0000000000 65535 f 
-0000000009 00000 n 
-0000000058 00000 n 
-0000000115 00000 n 
-0000000274 00000 n 
-0000000876 00000 n 
-trailer
-<<
-/Size 6
-/Root 1 0 R
->>
-startxref
-935
-%%EOF`;
-    }
-
-    function generateCertifications() {
-      return `%PDF-1.4
-1 0 obj
-<<
-/Type /Catalog
-/Pages 2 0 R
->>
-endobj
-
-2 0 obj
-<<
-/Type /Pages
-/Kids [3 0 R]
-/Count 1
->>
-endobj
-
-3 0 obj
-<<
-/Type /Page
-/Parent 2 0 R
-/MediaBox [0 0 612 792]
-/Contents 4 0 R
-/Resources <<
-  /Font <<
-    /F1 5 0 R
-  >>
->>
->>
-endobj
-
-4 0 obj
-<<
-/Length 520
->>
-stream
-BT
-/F1 24 Tf
-50 750 Td
-(CERTIFICACIONES Y NORMATIVAS) Tj
-0 -30 Td
-/F1 16 Tf
-(Sulfamix - Documentación Oficial) Tj
-0 -30 Td
-/F1 12 Tf
-(Actualizado Octubre 2024) Tj
-0 -50 Td
-(CERTIFICACIONES INCLUIDAS:) Tj
-0 -20 Td
-(• SENASA - Registro oficial) Tj
-0 -15 Td
-(• OMRI - Agricultura orgánica) Tj
-0 -15 Td
-(• ISO 9001 - Sistema de calidad) Tj
-0 -15 Td
-(• Análisis de composición) Tj
-0 -15 Td
-(• Normativas internacionales) Tj
-0 -15 Td
-(• Requisitos de transporte) Tj
-0 -15 Td
-(• Fichas de seguridad) Tj
-0 -30 Td
-(28 páginas con certificados oficiales) Tj
-0 -15 Td
-(y documentación regulatoria.) Tj
-ET
-endstream
-endobj
-
-5 0 obj
-<<
-/Type /Font
-/Subtype /Type1
-/BaseFont /Helvetica
->>
-endobj
-
-xref
-0 6
-0000000000 65535 f 
-0000000009 00000 n 
-0000000058 00000 n 
-0000000115 00000 n 
-0000000274 00000 n 
-0000000846 00000 n 
-trailer
-<<
-/Size 6
-/Root 1 0 R
->>
-startxref
-905
-%%EOF`;
-    }
-
-    function generateCalculatorTool() {
-      // Simular contenido de archivo ZIP con Excel
-      return "UEsDBAoAAAAAAIdYdVEAAAAAAAAAAAAAAAAJAAAAZG9jUHJvcHMvUEsDBBQAAAAIAIdYdVH..."; // Base64 simulado
-    }
-
-    function generateCompleteLibrary() {
-      // Simular contenido de archivo ZIP completo
-      return "UEsDBAoAAAAAAIdYdVEAAAAAAAAAAAAAAAAJAAAAZG9jUHJvcHMvUEsDBBQAAAAIAIdYdVH..."; // Base64 simulado
-    }
-
-    // Función para descargar PDFs REALES desde el servidor
-    async function downloadRealPDF(pdfUrl, filename) {
-      try {
-        const response = await fetch(pdfUrl);
-        
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        
-        const blob = await response.blob();
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.style.display = 'none';
-        a.href = url;
-        a.download = filename;
-        document.body.appendChild(a);
-        a.click();
-        window.URL.revokeObjectURL(url);
-        document.body.removeChild(a);
-        
-        return Promise.resolve();
-      } catch (error) {
-        console.error('Error descargando archivo:', error);
-        return Promise.reject(error);
-      }
-    }
-
-    // Smooth scrolling para los enlaces del menú
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
-    });
-  </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'987daf8dc7a28bbf',t:'MTc1OTMzOTgwNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
